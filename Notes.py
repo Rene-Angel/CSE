@@ -120,3 +120,18 @@
 
 # import random # This should be on line 1
 # print(random.randint(0, 100))
+
+# Comparisons
+print(1 == 1)  # Is 1 equal to 1?
+print(1 != 2)  # Is 1 not equal to 2?
+print(10 <= 15)
+print(not False)
+
+# Recasting
+
+c = '1'
+print(c == 1)
+print(int(c) == 1) # Both are ints
+print(c == str(1)) # Both are strings
+
+# The input command ALWAYS gives a string

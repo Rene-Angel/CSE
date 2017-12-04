@@ -1,66 +1,37 @@
-# # Rene-Angel Jaime
-# import random
-#
-# guessesTaken = 0
-#
-# number = random.randint(1, 50)
-# print("I am thinking of a number between 1 and 50.")
-#
-# while guessesTaken < 5:
-#     print("Take a guess.")
-#     guess = input()
-#     guess = int(guess)
-#
-#     guessesTaken = guessesTaken + 1
-#
-#     if guess < number:
-#         print("Your guess is too low.")
-#
-#     if guess > number:
-#         print("Your guess is too high.")
-#
-#     if guess == number:
-#         break
-#
-# if guess == number:
-#     guessesTaken = str(guessesTaken)
-#     print("Good job, you have guessed my number in guessesTaken guesses!")
-#
-# if guess != number:
-#     number = str(number)
-#     print("Nope. The number I was thinking of was + number")
-# This is a guess the number game.
+# Rene-Angel Jaime
+# 1) Generate random number
+# 2) ake and input (number) form the user
+# 3) Compare input to generated number
+# 4) Add "higher" and "lower" statements
+# 5) Add 5 guesses
 
 import random
 
 guessesTaken = 0
 
-print('Hello! What is your name?')
+print("Hello! What is your name?")
 myName = input()
 
-number = random.randint(1, 20)
-print('Well, ' + myName + ', I am thinking of a number between 1 and 20.')
+number = random.randint(1, 50)
+print("Well %s, I am thinking of a number between 1 and 50." % (myName))
 
-while guessesTaken < 6:
-    print('Take a guess.') # There are four spaces in front of print.
+guess = ''
+while guessesTaken < 5 and guess != number:
+    print("Take a guess.")
     guess = input()
     guess = int(guess)
 
-    guessesTaken = guessesTaken + 1
+    guessesTaken += 1
 
     if guess < number:
-         print('Your guess is too low.') # There are eight spaces in front of print.
-
-     if guess > number:
-         print('Your guess is too high.')
-
-    if guess == number:
-         break
+        print("Your guess is too low.")
+    elif guess > number:
+        print("Your guess is too high.")
 
 if guess == number:
     guessesTaken = str(guessesTaken)
-    print('Good job, ' + myName + '! You guessed my number in ' + guessesTaken + ' guesses!')
+    print("Good job, %s! You guessed my number in %s guesses!" % (myName, guessesTaken))
 
 if guess != number:
     number = str(number)
-    print('Nope. The number I was thinking of was ' + number)
+    print("Nope. The number I was thinking of was %s." % (number))
