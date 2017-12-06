@@ -13,7 +13,7 @@ print("Hello! What is your name?")
 myName = input()
 
 number = random.randint(1, 50)
-print("Well %s, I am thinking of a number between 1 and 50." % (myName))
+print("Well %s, I am thinking of a number between 1 and 50." % myName)
 
 guess = ''
 while guessesTaken < 5 and guess != number:
@@ -34,4 +34,4 @@ if guess == number:
 
 if guess != number:
     number = str(number)
-    print("Nope. The number I was thinking of was %s." % (number))
+    print("Nope. The number I was thinking of was %s." % number)
