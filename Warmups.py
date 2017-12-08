@@ -26,8 +26,8 @@ add_py("I_eat") == "I_eat.py"
 """
 
 
-def add_py(name):
-    print("%s.py" % name)
+# def add_py(name):
+#     print("%s.py" % name)
 
 
 # 12.6.17
@@ -62,3 +62,23 @@ def add_py(name):
 
 #     for x in range(3):
 #         print(string)
+
+# 12.7.17
+# """
+# Write a function called "date"
+# that takes in three parameters,
+# "month". "day", and "year" and
+# prints out the date, separated by a "/"
+
+# example:
+# date("12", "8", "17") == "12/8/17"
+# Expert mode:
+# date(12, 8, 17) == "12/8/17"
+# """
+
+
+# def date(month, day, year):
+#     print(str(month) + "/" + str(day) + "/" + str(year))
+
+
+# date(12, 8, 17)
