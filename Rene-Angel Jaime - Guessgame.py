@@ -12,18 +12,18 @@ guessesTaken = 0
 print("Hello! What is your name?")
 myName = input()
 
-number = random.randint(1, 50)  # 1) Generate random number
+number = random.randint(1, 50)
 print("Well %s, I am thinking of a number between 1 and 50." % myName)
 
 guess = ''
-while guessesTaken < 5 and guess != number:  # 5) Add 5 guesses
+while guessesTaken < 5 and guess != number:
     print("Take a guess.")
-    guess = input()  # 2) Take and input (number) form the user
-    guess = int(guess)  # 3) Compare input to generated number
+    guess = input()
+    guess = int(guess)
 
     guessesTaken += 1
 
-    if guess < number:  # 4) Add "higher" and "lower" statements
+    if guess < number:
         print("Your guess is too low.")
     elif guess > number:
         print("Your guess is too high.")
