@@ -1,10 +1,15 @@
 # Rene-Angel Jaime
 import random
 
-money = 15
+cash = 15
 d1 = (random.randint(1, 6))
 d2 = (random.randint(1, 6))
+dtotal = d1 + d2
+print("Dice:" + "%s" % dtotal)
 
-print(d1 + d2)
-
-def total():
+while cash > 0:
+    cash = cash - 1
+    print(cash)
+if dtotal == 7:
+    cash = cash + 5
+    print("Cash:" + "%s" % cash)
