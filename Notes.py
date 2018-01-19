@@ -166,3 +166,28 @@ listOne = list(str1)
 print(listOne)
 listOne[11] = '.'
 print(listOne)
+print("".join(listOne))
+
+# Adding things from a list
+shopping_list.append("cereal")
+shopping_list.append("salad")
+print(shopping_list)
+
+# Removing things from a list
+shopping_list.remove("soda")
+print(shopping_list)
+shopping_list.pop(0)
+print(shopping_list)
+
+# The string class
+import string
+print(string.ascii_letters)
+print(string.ascii_lowercase)
+print(string.ascii_uppercase)
+print(string.punctuation)
+print(string.digits)
+
+# Dealing with strings
+strTwo = "ThIs iS a VeRY oDd sEnTenCE"
+lowercase = strTwo.lower()
+print(lowercase)
