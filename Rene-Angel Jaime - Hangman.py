@@ -1,3 +1,4 @@
+import string
 """
 Rene-Angel Jaime
 A general guide for Hangman
@@ -7,7 +8,9 @@ A general guide for Hangman
 4. Reveal letters already guessed
 5. Create the win condition
 """
-import string
 
-Injustice_2 = ["Batman", "Harley Quinn", "Supergirl", "Superman", "Atrocitus", "Aquaman", "Blue Beetle", "Wonder Woman", "Black Canary", "Green Lantern"]
-print(Injustice_2)
+word_bank = ["Batman", "Harley Quinn", "Supergirl", "Black Adam", "Atrocitus", "Aquaman", "Blue Beetle",
+             "Wonder Woman", "Black Canary", "Green Lantern"]
+# random.shuffle(word_bank)
+for item in word_bank:
+    print(item)
