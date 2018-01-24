@@ -9,10 +9,12 @@ A general guide for Hangman
 4. Reveal letters already guessed
 5. Create the win condition
 """
-guesses = 10
 word_bank = ["Batman", "Harley Quinn", "Supergirl", "Black Adam", "Atrocitus", "Aquaman", "Blue Beetle",
              "Wonder Woman", "Black Canary", "Green Lantern"]
-
+letters_guessed = []
+# guess =
+guesses = 10
 str1 = (random.choice(word_bank))
 listOne = list(str1)
 print(listOne)
+# while guesses > 0:
