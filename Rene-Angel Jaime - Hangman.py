@@ -12,9 +12,16 @@ A general guide for Hangman
 word_bank = ["Batman", "Harley Quinn", "Supergirl", "Black Adam", "Atrocitus", "Aquaman", "Blue Beetle",
              "Wonder Woman", "Black Canary", "Green Lantern"]
 letters_guessed = []
-# guess =
+guess = " "
 guesses = 10
-str1 = (random.choice(word_bank))
-listOne = list(str1)
-print(listOne)
-# while guesses > 0:
+word = (random.choice(word_bank))
+correct_letters = list(word)
+print(word)
+
+while guesses > 0 != quit:
+    guess = input("Guess a letter: ")
+    print("Guesses Left: %s" % guesses)
+    letters_guessed.append(guess)
+    print(" ".join(letters_guessed))
+    if guess != correct_letters:
+        guesses -= 1
