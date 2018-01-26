@@ -9,19 +9,31 @@ A general guide for Hangman
 4. Reveal letters already guessed
 5. Create the win condition
 """
-word_bank = ["Batman", "Harley Quinn", "Supergirl", "Black Adam", "Atrocitus", "Aquaman", "Blue Beetle",
-             "Wonder Woman", "Black Canary", "Green Lantern"]
+word_bank = ["Batman", "HarleyQuinn", "Supergirl", "BlackAdam", "Atrocitus", "Aquaman", "BlueBeetle",
+             "WonderWoman", "BlackCanary", "GreenLantern"]
 letters_guessed = []
 guess = " "
 guesses = 10
-word = (random.choice(word_bank))
+word = random.choice(word_bank)
 correct_letters = list(word)
-print(word)
 
 while guesses > 0 != quit:
+
+    output = []
+    for letter in word:
+        if letter in letters_guessed:
+            output.append(letter)
+        else:
+            output.append("*")
+    print(output)
+
     guess = input("Guess a letter: ")
     print("Guesses Left: %s" % guesses)
     letters_guessed.append(guess)
     print(" ".join(letters_guessed))
-    if guess != correct_letters:
+
+if guess == correct_letters:
+        guesses += 0
+
+if guess != correct_letters:
         guesses -= 1
