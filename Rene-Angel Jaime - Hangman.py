@@ -18,22 +18,16 @@ word = random.choice(word_bank)
 correct_letters = list(word)
 
 while guesses > 0 != quit:
-
     output = []
     for letter in word:
         if letter in letters_guessed:
             output.append(letter)
         else:
             output.append("*")
-    print(output)
-
+    print(" ".join(list(output)))
     guess = input("Guess a letter: ")
     print("Guesses Left: %s" % guesses)
     letters_guessed.append(guess)
     print(" ".join(letters_guessed))
-
-if guess == correct_letters:
-        guesses += 0
-
-if guess != correct_letters:
-        guesses -= 1
+if guess in word:
+    guesses -= 1
