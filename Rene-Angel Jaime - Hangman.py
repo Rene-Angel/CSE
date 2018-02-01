@@ -1,5 +1,4 @@
 import random
-import string
 """
 Rene-Angel Jaime
 A general guide for Hangman
@@ -9,15 +8,15 @@ A general guide for Hangman
 4. Reveal letters already guessed
 5. Create the win condition
 """
-word_bank = ["Batman", "HarleyQuinn", "Supergirl", "BlackAdam", "Atrocitus", "Aquaman", "BlueBeetle",
-             "WonderWoman", "BlackCanary", "GreenLantern"]
+word_bank = ["batman", "harleyquinn", "supergirl", "blackadam", "atrocitus", "aquaman", "bluebeetle",
+             "wonderwoman", "blackcanary", "greenlantern"]
 letters_guessed = []
 guess = " "
-guesses = 10
+guesses = 11
 word = random.choice(word_bank)
 correct_letters = list(word)
 
-while guesses > 0 != quit:
+while guesses >= 2 != quit:
     output = []
     for letter in word:
         if letter in letters_guessed:
@@ -25,9 +24,18 @@ while guesses > 0 != quit:
         else:
             output.append("*")
     print(" ".join(list(output)))
+    if guess not in word:
+        guesses -= 1
+        print("Guesses Left: %s" % guesses)
+    else:
+        print("Guesses Left: %s" % guesses)
     guess = input("Guess a letter: ")
-    print("Guesses Left: %s" % guesses)
     letters_guessed.append(guess)
     print(" ".join(letters_guessed))
-if guess in word:
-    guesses -= 1
+
+if output == word:
+    print("You Win! :)")
+    exit(0)
+if guesses == 0:
+    print("You Lose! :(")
+    exit(0)
