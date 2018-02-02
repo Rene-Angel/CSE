@@ -11,21 +11,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Notes.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Notes.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3111">
-              <caret line="183" column="27" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="27" />
+            <state relative-caret-position="291">
+              <caret line="228" column="33" lean-forward="true" selection-start-line="228" selection-start-column="33" selection-end-line="228" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rene-Angel Jaime - Hangman.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Rene-Angel Jaime - Hangman.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Hangman.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="481">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,8 +84,8 @@
         <option value="$PROJECT_DIR$/Warmups.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - Guessgame.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - Luckysevens.py" />
-        <option value="$PROJECT_DIR$/Notes.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - Hangman.py" />
+        <option value="$PROJECT_DIR$/Notes.py" />
       </list>
     </option>
   </component>
@@ -141,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Rene-Angel Jaime - Hangman">
+  <component name="RunManager" selected="Python.Notes">
     <configuration name="Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -236,8 +236,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Hangman" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Notes" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Notes" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Hangman" />
         <item index="2" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Luckysevens" />
         <item index="3" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Guessgame" />
         <item index="4" class="java.lang.String" itemvalue="Python.Warmups" />
@@ -266,7 +266,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.44164038" sideWeight="0.11713031" order="7" side_tool="true" content_ui="tabs" x="675" y="177" width="503" height="355" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29968455" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29968455" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -657,18 +657,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Notes.py">
+    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Hangman.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3111">
-          <caret line="183" column="27" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="27" />
+        <state relative-caret-position="481">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Hangman.py">
+    <entry file="file://$PROJECT_DIR$/Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="291">
+          <caret line="228" column="33" lean-forward="true" selection-start-line="228" selection-start-column="33" selection-end-line="228" selection-end-column="33" />
           <folding />
         </state>
       </provider>
