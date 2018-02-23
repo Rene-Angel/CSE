@@ -5,8 +5,7 @@ dungeon_map = {
                        "But your mission is to investigate where this place leads and eliminate any threats."
                        "To the south there is a hallway leading to a room.",
         'PATHS': {
-            'SOUTH': 'R2',
-            'S': 'R2'
+            'SOUTH': 'R2'
         }
     },
     'R2': {
@@ -14,9 +13,7 @@ dungeon_map = {
         'DESCRIPTION': "The smell of sewer water is disgusting.",
         'PATHS': {
             'NORTH': 'START',
-            'N': 'START',
-            'SOUTH': 'R3',
-            'S': 'R3'
+            'SOUTH': 'R3'
         }
     },
     'R3': {
@@ -25,9 +22,7 @@ dungeon_map = {
                        "The other walls have water dripping from the sewer pipes.",
         'PATHS': {
             'WEST': 'H1',
-            'W': 'R2',
-            'NORTH': 'R2',
-            'N': 'R2'
+            'NORTH': 'R2'
         }
     },
     'R4': {
@@ -36,17 +31,14 @@ dungeon_map = {
                        "crawling up your legs.",
         'PATHS': {
             'WEST': 'H1',
-            'W': 'H1',
-            'EAST': 'R3',
-            'E': 'R3'
+            'EAST': 'R3'
         }
     },
     'R5': {
         'NAME': "The Broom Closet",
         'DESCRIPTION': "There's nothing in here, but mops and brooms",
         'PATHS': {
-            'WEST': 'H1',
-            'W': 'H1'
+            'WEST': 'H1'
         }
     },
     'R6': {
@@ -54,8 +46,7 @@ dungeon_map = {
         'DESCRIPTION': "There are many chemicals around you, along with the strange ingredients found in bookshelves "
                        "of recipes and jars of dragon eyes.",
         'PATHS': {
-            'SOUTH': 'R50',
-            'S': 'R50'
+            'SOUTH': 'R50'
         }
     },
     'R7': {
@@ -63,8 +54,7 @@ dungeon_map = {
         'DESCRIPTION': "You are likely to be killed in a suspicous rrom like this you'll need some light if you are "
                        "willing to see clearly",
         'PATHS': {
-            'SOUTH': 'H2',
-            'S': 'H2'
+            'SOUTH': 'H2'
         }
     },
     'R8': {
@@ -72,8 +62,7 @@ dungeon_map = {
         'DESCRIPTION': "There's a mat on the floor for martial arts and sword practice, along with the skeletons of "
                        "the dead still holding their katanas.",
         'PATHS': {
-            'SOUTH': 'H2',
-            'S': 'H2'
+            'SOUTH': 'H2'
         }
     },
     'R9': {
@@ -82,17 +71,14 @@ dungeon_map = {
                        "wall. There's a slight breeze in the room.",
         'PATHS': {
             'NORTH': 'R46',
-            'N': 'R46',
-            'SOUTH': 'H2',
-            'S': 'H2'
+            'SOUTH': 'H2'
         }
     },
     'R10': {
         'NAME': "The Guard's Restroom",
         'DESCRIPTION': "The room's a mess, and has a horrible stench.",
         'PATHS': {
-            'WEST': 'R11',
-            'W': 'R11'
+            'WEST': 'R11'
         }
     },
     'R11': {
@@ -101,7 +87,6 @@ dungeon_map = {
                        "map. This is probably where they gave out missions for them to do.",
         'PATHS': {
             'WEST': 'H9',
-            'W': 'H9',
             'E1': 'H2',
             'E2': 'R10'
         }
@@ -378,9 +363,7 @@ dungeon_map = {
         'DESCRIPTION': "The room where the ancient ones used to read and research such forbidden knowledge.",
         'PATHS': {
             'NORTH': 'R6',
-            'N': 'R6',
-            'SOUTH': 'H2',
-            'S': 'H2'
+            'SOUTH': 'H2'
         }
     },
     'INTERSECTION': {
@@ -388,11 +371,8 @@ dungeon_map = {
         'DESCRIPTION': "You find yourself in and intersection between halls.",
         'PATHS': {
             'NORTH': 'H7',
-            'N': 'H7',
             'WEST': 'H6',
-            'W': 'H6',
-            'EAST': 'H5',
-            'E': 'H5'
+            'EAST': 'H5'
         }
     },
     'CH': {
@@ -469,7 +449,7 @@ dungeon_map = {
 }
 
 current_node = dungeon_map['START']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'N', 'S', 'W', 'E', 'NORTHWEST', 'NORTHEAST', 'SOUTHWEST', 'SOUTHEAST',
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'NORTHWEST', 'NORTHEAST', 'SOUTHWEST', 'SOUTHEAST',
               'NW', 'NE', 'SE', 'SW', 'N1', 'N2', 'N3', 'N4', 'E1', 'E2', 'E3', 'E4', 'W1', 'W2', 'W3', 'W4', 'S1',
               'S2', 'S3', 'S4']
 
