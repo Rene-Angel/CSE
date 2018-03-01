@@ -14,6 +14,37 @@ class Room(object):
 
 # Initialize Rooms
 # west_house = Room("West of House", 'north_house', None, None, None, "This is the West side of the House.")
-the_entrance = Room("The Entrance", None, 'leaking_room', "You enter a room through a ladder, from where the top leads to an abandoned subway tunnel..."
-                       "But your mission is to investigate where this place leads and eliminate any threats."
-                       "To the south there is a hallway leading to a room.
+the_entrance = Room("The Entrance", None, 'empty_room', None, None,
+                    "You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... "
+                    "But your mission is to investigate where this place leads and eliminate any threats. To the south "
+                    "there is a hallway leading to a room.")
+empty_room = Room("An Empty Room", 'the_entrance', 'leaking_room', None, None,
+                  "There is nothing in here, but mops and brooms. The smell of sewer water makes you feel sick.")
+leaking_room = Room("The Leaking Room", 'empty_room', None, None, 'wall_opening',
+                    "You find yourself in another room, there's a cold breeze from the giant hole in the west wall."
+                    "The other walls have water dripping from the sewer pipes.")
+wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_1',
+                    "You are inside an opening of a brick wall, it's a tight squeeze but at least the rats aren't "
+                    "crawling up your legs.")
+broom_closet = Room("The Broom Closet", None, None, None, 'hallway_1',
+                    "There's nothing in here, but mops and brooms. There is though a smell of chemicals coming form "
+                    "the sewer pipes.")
+
+current_node = Room('the_entrance')
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST' ]
+
+while True:
+    print(current_node)
+    print("")
+    command = input('>_')
+    if command == 'quit':
+        quit(0)
+    if command in directions:
+        try:
+            name_of_node = current_node[][command]
+            current_node = Room[name_of_node]
+        except KeyError:
+            print("You cannot go this way.")
+            print("")
+    else:
+        print('Command not Recognized')

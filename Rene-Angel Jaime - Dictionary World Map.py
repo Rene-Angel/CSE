@@ -21,7 +21,7 @@ dungeon_map = {
         'DESCRIPTION': "You find yourself in another room, there's a cold breeze from the giant hole in the west wall."
                        "The other walls have water dripping from the sewer pipes.",
         'PATHS': {
-            'WEST': 'H1',
+            'WEST': 'R4',
             'NORTH': 'R2'
         }
     },
@@ -36,7 +36,8 @@ dungeon_map = {
     },
     'R5': {
         'NAME': "The Broom Closet",
-        'DESCRIPTION': "There's nothing in here, but mops and brooms",
+        'DESCRIPTION': "There's nothing in here, but mops and brooms. There is though a smell of chemicals coming form "
+                       "the sewer pipes.",
         'PATHS': {
             'WEST': 'H1'
         }
@@ -449,9 +450,7 @@ dungeon_map = {
 }
 
 current_node = dungeon_map['START']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'NORTHWEST', 'NORTHEAST', 'SOUTHWEST', 'SOUTHEAST',
-              'NW', 'NE', 'SE', 'SW', 'N1', 'N2', 'N3', 'N4', 'E1', 'E2', 'E3', 'E4', 'W1', 'W2', 'W3', 'W4', 'S1',
-              'S2', 'S3', 'S4']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST' ]
 
 while True:
     print(current_node['NAME'])
