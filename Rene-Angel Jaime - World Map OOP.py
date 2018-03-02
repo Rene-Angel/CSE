@@ -30,18 +30,24 @@ broom_closet = Room("The Broom Closet", None, None, None, 'hallway_1',
                     "There's nothing in here, but mops and brooms. There is though a smell of chemicals coming form "
                     "the sewer pipes.")
 
-current_node = Room('the_entrance')
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST' ]
+current_node = the_entrance
+directions = ['north', 'south', 'east', 'west']
+short_directions = ['n', 's', 'e', 'w']
 
 while True:
-    print(current_node)
-    print("")
-    command = input('>_')
+    print(current_node.name)
+    print(current_node.description)
+    command = input('>_').lower()
     if command == 'quit':
         quit(0)
+    elif command in short_directions:
+        # look for which command we typed in
+        pos = short_directions.index(command)
+        # Change the command to be the long form
+        command = directions[pos]
     if command in directions:
         try:
-            name_of_node = current_node[][command]
+            name_of_node = current_node[command]
             current_node = Room[name_of_node]
         except KeyError:
             print("You cannot go this way.")
