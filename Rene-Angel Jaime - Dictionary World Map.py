@@ -450,7 +450,7 @@ dungeon_map = {
 }
 
 current_node = dungeon_map['START']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST' ]
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
 
 while True:
     print(current_node['NAME'])

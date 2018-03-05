@@ -14,6 +14,143 @@ class Room(object):
 
 # Initialize Rooms
 # west_house = Room("West of House", 'north_house', None, None, None, "This is the West side of the House.")
+# Information = ( Name, North, South, East, West, Description )
+hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
+                 "This long Hallway leads to:"
+                 "North: Long Corridor"
+                 "South: Long Corridor"
+                 "East: Broken Wall Opening")
+hallway_2 = Room("Long Corridor", 'hallway_6', 'hallway_1', None, None,
+                 "This Long Hallway leads to:"
+                 "North: Long Corridor"
+                 "South: Long Corridor"
+                 "East:"
+                 "West:")
+hallway_3 = Room("Long Corridor", 'hallway_1', None, 'hallway_4', None,
+                 "This Long Hallway leads to:"
+                 "North: Long Corridor"
+                 "South:"
+                 "East: Long Corridor"
+                 "West:")
+hallway_4 = Room("Long Corridor", None, 'hallway_5', None, 'hallway_3',
+                 "This Long Hallway leads to:"
+                 "North: Long Corridor"
+                 "South:"
+                 "East:"
+                 "West: Long Corridor")
+hallway_5 = Room("Long Corridor", 'hallway_4', 'hallway_6', None, None,
+                 "This Long Hallway leads to:"
+                 "North: Long Corridor"
+                 "South: Long Corridor"
+                 "East:"
+                 "West:")
+hallway_6 = Room("Long Corridor", None, 'hallway_2', None, 'hallway_7',
+                 "This Long Hallway leads to:"
+                 "North:"
+                 "South: Long Corridor"
+                 "East:"
+                 "West: Long Corridor")
+hallway_7 = Room("Long Corridor", None, None, 'hallway_6', 'hallway_8',
+                 "This Long Hallway leads to:"
+                 "North: "
+                 "East: Long Corridor"
+                 "West: Long Corridor")
+hallway_8 = Room("Long Corridor", None, None, 'hallway_7', 'hallway_9',
+                 "This Long Hallway leads to:"
+                 "North: "
+                 "East: Long Corridor"
+                 "West: Long Corridor")
+hallway_9 = Room("Long Corridor", None, None, 'hallway_8', 'hallway_10',
+                 "This Long Hallway leads to:"
+                 "North: "
+                 "East: Long Corridor"
+                 "West: Long Corridor")
+hallway_10 = Room("Long Corridor", None, None, 'hallway_9', None,
+                  "This Long Hallway leads to:"
+                  "North: "
+                  "East: "
+                  "West: ")
+hallway_11 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:")
+hallway_12 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_13 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_14 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_15 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_16 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_17 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_18 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_19 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_20 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_21 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_22 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_23 = Room("Long Corridor", None, None, None, None,
+                  "This Long Hallway leads to:"
+                  "North:"
+                  "South:"
+                  "East:"
+                  "West:")
+hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12',
+                  "This Long Hallway Leads to:"
+                  "North: Long Corridor"
+                  "West: Long Corridor")
 the_entrance = Room("The Entrance", None, 'empty_room', None, None,
                     "You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... "
                     "But your mission is to investigate where this place leads and eliminate any threats. To the south "
@@ -29,6 +166,7 @@ wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_
 broom_closet = Room("The Broom Closet", None, None, None, 'hallway_1',
                     "There's nothing in here, but mops and brooms. There is though a smell of chemicals coming form "
                     "the sewer pipes.")
+
 
 current_node = the_entrance
 directions = ['north', 'south', 'east', 'west']
@@ -54,3 +192,4 @@ while True:
             print("")
     else:
         print('Command not Recognized')
+
