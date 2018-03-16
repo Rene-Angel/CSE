@@ -13,8 +13,8 @@ class Item(object):
 
 
 class Weapon(Item):
-    def __init__(self, name, info, range, attack, durability):
-        super(Weapon, self).__init__(name, info)
+    def __init__(self, name, info, attack, durability):
+        super(Weapon, self).__init__(name, info, range)
         self.attack = attack
         self.durability = durability
         self.range = range
@@ -28,5 +28,6 @@ class Weapon(Item):
 
 class Consumable(Item):
     def __init__(self, name, info, use, effect):
+        super(Consumable, self).__init__(name, info, effect)
         self.use = use
         self.effect = effect
