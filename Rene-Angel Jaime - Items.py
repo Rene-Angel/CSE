@@ -7,15 +7,15 @@ class Item(object):
         self.health = 1000
         self.target_health = 1000
 
-    def drop(self):
+    def discard(self):
         self.take = False
         self.drop = True
-        print("You take the item.")
+        print("You dropped %s." % self.name)
 
-    def take(self):
+    def obtain(self):
         self.take = True
         self.drop = False
-        print("You take the item.")
+        print("You obtained %s." % self.name)
 
     def sell(self):
         self.value += 100
@@ -52,7 +52,6 @@ class Consumable(Item):
         print("You used this item")
         self.health += self.effect
         self.effect = True
-        self.drop = True
 
 
 class Bone_Sword(Weapon):
@@ -109,7 +108,21 @@ class Stick(Item):
     def __init__(self):
         super(Stick, self).__init__("Stick", 0)
 
-    def use(self):
-        print("It's just a stick what more do you want?")
+    def interact(self):
+        print("What more do you want its just a stick.")
 
 
+class Super_Stick(Stick):
+    def __init__(self):
+        super(Super_Stick, self).__init__("Super Stick", 0)
+
+
+test = Apple()
+test.obtain()
+test_1 = Egg()
+test_1.obtain()
+test.discard()
+test_1.discard()
+test_2 = Stick()
+test_2.interact()
+test_3 = Bone_Sword()
