@@ -4,18 +4,18 @@ class Character(object):
         self.health = health
         self.stats = stats
         self.inventory = inventory
-        self.attack_amt = attack
+        self.attack = attack
 
-    def attack(self, target):
-        if target.damage(self.attack_amt):
+    def damage(self, target):
+        if target.damage(self.attack):
             print("You took Damage.")
+            self.health -= self.attack
 
-    def take_damage(self, dmg):
-        self.health(dmg)
+    def take_damage(self, damage):
+        self.health(attack)
 
     # def interact(item):
     #     item.inventory
-
 
 # rodin = Character("Rodin", 10000, True, "Immortality",
 #                   "'He comes from the heavens above, be as one of the old archangels he wants nothing more than "
@@ -26,9 +26,11 @@ class Character(object):
 #                   "weapons out of the Halos, Demon Blood, Ebony, and Angelic Tunes from the Heavens. He is "
 #                   "very picky when it comes to getting the job done!",
 #                   "Angelic Sword, Demon's Eye, Health Vials, Bar Keys")
-player = Character("Rodin", 100, True, None, None)
-enemy = Character("Angel", 50, True, None, None)
 
-(player.attack_amt(enemy))
+
+player = Character("Rodin", 100, 25, None, None)
+enemy = Character("Angel", 50, 10, None, None)
+
+(player.attack(enemy))
 (enemy.attack(player))
 print(self.health)

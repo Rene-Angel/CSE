@@ -103,6 +103,11 @@ class Dagger(Weapon):
         super(Dagger, self).__init__("Dagger", 15, 10)
 
 
+class Ragnarok(Weapon):
+    def __init__(self):
+        super(Ragnarok, self).__init__("Ragnarok", 25, 50)
+
+
 class Egg(Consumable):
     def __init__(self):
         super(Egg, self).__init__("Egg", 10, 5)
@@ -140,6 +145,9 @@ class Character(object):
 
     def take_damage(self, dmg):
         self.health(dmg)
+
+
+player = Character("Rodin", 500, 25, None, 'Ragnarok')
 
 
 class Room(object):
