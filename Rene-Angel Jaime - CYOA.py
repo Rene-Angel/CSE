@@ -68,6 +68,11 @@ class Bone_Sword(Weapon):
         super(Bone_Sword, self).__init__("Bone Sword", 5, 10)
 
 
+class Troll_Axe(Weapon):
+    def __init__(self):
+        super(Troll_Axe, self).__init__("Troll_Axe", 25, 15)
+
+
 class War_Axe(Weapon):
     def __init__(self):
         super(War_Axe, self).__init__("War Axe", 15, 20)
@@ -131,6 +136,22 @@ class Super_Stick(Stick):
         super(Super_Stick, self).__init__("Super Stick", 0)
 
 
+bone_sword = Bone_Sword()
+arrows = Arrows()
+long_bow = Long_Bow()
+dagger = Dagger()
+crossbow = X_Bow()
+egg = Egg()
+apple = Apple()
+troll_axe = Troll_Axe()
+war_axe = War_Axe()
+stick = Stick()
+super_stick = Super_Stick()
+health_potion = Health_Potion()
+ragnarok = Ragnarok()
+branch = Branch()
+
+
 class Character(object):
     def __init__(self, name, health, attack, stats, inventory):
         self.name = name
@@ -147,7 +168,12 @@ class Character(object):
         self.health(dmg)
 
 
-player = Character("Rodin", 500, 25, None, 'Ragnarok')
+player = Character("Rodin", 500, 25, None, Ragnarok)
+troll = Character("Troll", 150, 25, None, Troll_Axe)
+goblin = Character("Goblin", 100, 10, None, Dagger)
+skeleton = Character("Skeleton", 75, 15, None, Bone_Sword)
+dragon = Character("Dragon", 1000, 45, None, None)
+ghost = Character("Ghost", 50, 10, None, None)
 
 
 class Room(object):
@@ -299,6 +325,7 @@ broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2',
 
 
 current_node = the_entrance
+items = ('pick up', 'take', 'drop', 'discard', 'use', 'interact', 'fire', 'attack')
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
