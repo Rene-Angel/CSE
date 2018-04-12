@@ -21,14 +21,14 @@ class Item(object):
     def obtain(self):
         print("You obtained %s." % self.name)
 
-        # def sell(self):
+    # def sell(self):
 
 
 class Weapon(Item):
     def __init__(self):
         super(Weapon, self).__init__(name, attack, armor, weight, price)
 
-        # def attack(self):
+    # def attack(self):
 
 
 class Ammunition(Item):
@@ -37,7 +37,7 @@ class Ammunition(Item):
         self.damage = damage
         self.amount = amount
 
-        # def fire(self):
+    # def fire(self):
 
 
 class Consumable(Item):
@@ -45,10 +45,10 @@ class Consumable(Item):
         super(Consumable, self).__init__(name, price)
         self.effect = effect
 
-        # def use(self):
-        #     print("You used this item")
-        #     self.health += self.effect
-        #     self.effect = True
+    # def use(self):
+    #     print("You used this item")
+    #     self.health += self.effect
+    #     self.effect = True
 
 
 class Sword(Weapon):
@@ -111,27 +111,24 @@ class Long_Bow(Weapon):
         super(Long_Bow, self).__init__("Long Bow", 20, 30)
 
 
-class Stick(Item):
+class Stick(Weapon):
     def __init__(self):
-        super(Stick, self).__init__("Stick", 0)
-
-    def interact(self):
-        print("What more do you want its just a stick.")
+        super(Stick, self).__init__("Stick", 1, 1)
 
 
-# sword = Sword()
-# arrows = Arrows()
-# long_bow = Long_Bow()
-# dagger = Dagger()
-# crossbow = X_Bow()
-# egg = Egg()
-# apple = Apple()
-# troll_axe = Troll_Axe()
-# war_axe = War_Axe()
-# stick = Stick()
-# health_potion = Health_Potion()
-# ragnarok = Ragnarok()
-# branch = Branch()
+sword = Sword()
+arrows = Arrows()
+long_bow = Long_Bow()
+dagger = Dagger()
+crossbow = X_Bow()
+egg = Egg()
+apple = Apple()
+troll_axe = Troll_Axe()
+war_axe = War_Axe()
+stick = Stick()
+health_potion = Health_Potion()
+ragnarok = Ragnarok()
+branch = Branch()
 
 
 class Character(object):
@@ -174,9 +171,6 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-# Initialize Rooms
-# west_house = Room("West of House", 'north_house', None, None, None, "This is the West side of the House.")
-# Information = ( Name, North, South, East, West, Description )
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
                  None, {Arrows, Ragnarok, War_Axe, Long_Bow}, "This long Hallway leads to: "
                  "North: Long Corridor "
@@ -248,77 +242,64 @@ hallway_13 = Room("Long Corridor", 'hallway_14', None, 'hallway_18', 'hallway_12
                   "East: Long Corridor "
                   "West: Long Corridor ")
 hallway_14 = Room("Long Corridor", 'hallway_15', 'hallway_13', None, None,
-                  "This Long Hallway leads to: "
+                  {None}, None, "This Long Hallway leads to: "
                   "North: Long Corridor "
                   "South: Long Corridor "
-                  "East: ",
-                  {None})
+                  "East: ")
 hallway_15 = Room("Long Corridor", 'hallway_17', 'hallway_14', None, None,  # Decided to Remove 'hallway_16' unnecessary
-                  "This Long Hallway leads to: "
+                  {None}, None, "This Long Hallway leads to: "
                   "North: Long Corridor "
                   "South: Long Corridor "
                   "East: "
-                  "West: ",
-                  {None})
+                  "West: ")
 hallway_17 = Room("Long Corridor", None, 'hallway_15', None, None,
-                  "This Long Hallway leads to: "
+                  {None}, None, "This Long Hallway leads to: "
                   "North: "
                   "South: Long Corridor "
                   "East: "
-                  "West: ",
-                  {None})
+                  "West: ")
 hallway_18 = Room("Long Corridor", None, None, 'hallway_13', 'hallway_20',  # Decided to remove 'hallway_19' unnecessary
-                  "This Long Hallway leads to: "
+                  {None}, None, "This Long Hallway leads to: "
                   "North: "
                   "South: "
                   "East: Long Corridor "
-                  "West: Long Corridor ",
-                  {None})
+                  "West: Long Corridor ")
 hallway_20 = Room("Long Corridor", None, None, 'hallway_18', 'hallway_21',
-                  "This Long Hallway leads to: "
+                  {None}, None, "This Long Hallway leads to: "
                   "North: "
                   "East: Long Corridor "
-                  "West: Long Corridor ",
-                  {None})
-hallway_21 = Room("Long Corridor", None, None, 'hallway_20', 'hallway_23',  # Decided to Remove 'hallway_22'
-                  "This Long Hallway leads to: "
+                  "West: Long Corridor ")
+hallway_21 = Room("Long Corridor", None, None, 'hallway_20', 'hallway_23', {None}, None, "This Long Hallway leads to: "
                   "North: "
                   "South: "
                   "East: Long Corridor "
-                  "West: Long Corridor ",
-                  {None})
-hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23',
-                  "This Long Hallway leads to: "
+                  "West: Long Corridor ")
+hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', {None}, None, "This Long Hallway leads to: "
                   "North: "
                   "East: "
-                  "West: Long Corridor ",
-                  {None})
-hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12',
-                  "This Long Hallway Leads to: "
+                  "West: Long Corridor ")
+hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', {None}, None, "This Long Hallway Leads to: "
                   "North: Long Corridor "
-                  "West: Long Corridor ",
-                  {None})
-the_entrance = Room("The Entrance", None, 'empty_room', None, None,
+                  "West: Long Corridor ")
+the_entrance = Room("The Entrance", None, 'empty_room', None, None, {None}, None,
                     "You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... "
                     "But your mission is to investigate where this place leads and eliminate any threats. To the south "
-                    "there is a hallway leading to a room.",
-                    {None})
-empty_room = Room("An Empty Room", 'the_entrance', 'leaking_room', None, None,
-                  "There is nothing in here, but mops and brooms. The smell of sewer water makes you feel sick.",
-                  {None})
+                    "there is a hallway leading to a room.")
+empty_room = Room("An Empty Room", 'the_entrance', 'leaking_room', None, None, {None}, None,
+                  "There is nothing in here, but mops and brooms. The smell of sewer water makes you feel sick.")
 leaking_room = Room("The Leaking Room", 'empty_room', None, None, 'wall_opening',
+                    {None}, None,
                     "You find yourself in another room, there's a cold breeze from the giant hole in the west wall."
-                    "The other walls have water dripping from the sewer pipes.",
-                    {None})
-wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_1',
+                    "The other walls have water dripping from the sewer pipes.")
+wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_1', {None}, None,
                     "You are inside an opening of a brick wall. The inside of the wall is filled with pipes. "
-                    "It's a tight squeeze but at least the rats aren't crawling up your legs.",
-                    {None})
-broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2',
+                    "It's a tight squeeze but at least the rats aren't crawling up your legs.")
+broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2', {None}, None,
                     "There's nothing in here, but mops and brooms. There is a smell of chemicals coming from "
-                    "the sewer pipes.",
-                    {None})
-# alchemy_lab = Room("Secret Alchemy Lab", )
+                    "the sewer pipes.")
+alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, {health_potion}, None,
+                   "Many different types of ingredients surround you on shelves. "
+                   "'ThErE iS nO wAy OuT', says a tall mysterious figure.")
 
 
 class Inventory(object):
@@ -336,7 +317,7 @@ inventory = Inventory()
 
 
 current_node = the_entrance
-item_commands = ['pick up', 'take', 'drop', 'discard', 'use', 'interact', 'fire', 'attack']
+item_commands = ['take', 'drop', 'use']
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
@@ -347,9 +328,7 @@ while True:
     if command == 'quit':
         quit(0)
     elif command in short_directions:
-        # look for which command we typed in
         pos = short_directions.index(command)
-        # Change the command to be the long form
         command = directions[pos]
     if command in directions:
         try:
@@ -360,4 +339,4 @@ while True:
     else:
         print('Command not Recognized')
         print()
-        # if command in items:
+    # if command in items:
