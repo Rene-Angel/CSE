@@ -1,3 +1,4 @@
+import string
 # import ...(statements)
 # class definitions
 # items first
@@ -31,15 +32,6 @@ class Weapon(Item):
     # def attack(self):
 
 
-class Ammunition(Item):
-    def __init__(self, name, damage, amount, price):
-        super(Ammunition, self).__init__(name, price)
-        self.damage = damage
-        self.amount = amount
-
-    # def fire(self):
-
-
 class Consumable(Item):
     def __init__(self, name, effect, price):
         super(Consumable, self).__init__(name, price)
@@ -64,16 +56,6 @@ class Troll_Axe(Weapon):
 class War_Axe(Weapon):
     def __init__(self):
         super(War_Axe, self).__init__("War Axe", 15, 20)
-
-
-class X_Bow(Weapon):
-    def __init__(self):
-        super(X_Bow, self).__init__("Cross Bow", 20, 40)
-
-
-class Arrows(Ammunition):
-    def __init__(self):
-        super(Arrows, self).__init__("Arrows", 25, 50, 10)
 
 
 class Health_Potion(Consumable):
@@ -106,21 +88,13 @@ class Egg(Consumable):
         super(Egg, self).__init__("Egg", 10, 5)
 
 
-class Long_Bow(Weapon):
-    def __init__(self):
-        super(Long_Bow, self).__init__("Long Bow", 20, 30)
-
-
 class Stick(Weapon):
     def __init__(self):
         super(Stick, self).__init__("Stick", 1, 1)
 
 
 sword = Sword()
-arrows = Arrows()
-long_bow = Long_Bow()
 dagger = Dagger()
-crossbow = X_Bow()
 egg = Egg()
 apple = Apple()
 troll_axe = Troll_Axe()
@@ -302,22 +276,8 @@ alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, {health_po
                    "'ThErE iS nO wAy OuT', says a tall mysterious figure.")
 
 
-class Inventory(object):
-    def __init__(self):
-        self.item = {}
-
-    def add_item(self, item):
-        self.item[item.name] += item
-
-    def remove_item(self, item):
-        self.item[item.name] -= item
-
-
-inventory = Inventory()
-
-
+inventory = {}
 current_node = the_entrance
-item_commands = ['take', 'drop', 'use']
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
@@ -327,6 +287,8 @@ while True:
     command = input('>_ ').lower()
     if command == 'quit':
         quit(0)
+    if command == 'take':
+
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
