@@ -93,265 +93,6 @@ dungeon_map = {
         }
     },
     'R12': {
-        'NAME': "The Interrogation Room",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R13': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R14': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R15': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R16': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R17': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R18': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R19': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R20': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R21': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R22': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R23': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R24': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R25': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R26': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R27': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R28': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R29': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R30': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R31': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R32': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R33': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R34': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R35': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R36': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R37': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R38': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R39': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R40': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R41': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R42': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R43': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R44': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R45': {
-        'NAME': "",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R46': {
-        'NAME': "The Cave Entrance",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R47': {
-        'NAME': "The Cave Area Part 1",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R48': {
-        'NAME': "The Cave Area Part 2",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'SOUTH': ''
-        }
-    },
-    'R49': {
         'NAME': "The Dragon's Keep",
         'DESCRIPTION': "There is a large pile of bones and ashes leading many feet high, but at the top of that pile "
                        "you find a sleeping dragon awaken from it's slumber.",
@@ -359,7 +100,7 @@ dungeon_map = {
             'SOUTH': ''
         }
     },
-    'R50': {
+    'R13': {
         'NAME': "The Library",
         'DESCRIPTION': "The room where the ancient ones used to read and research such forbidden knowledge.",
         'PATHS': {
@@ -376,72 +117,67 @@ dungeon_map = {
             'EAST': 'H5'
         }
     },
-    'CH': {
-        'NAME': "Corner Hall",
-        'DESCRIPTION': "",
-        'PATHS': {
-            'NORTH': '',
-            'N': ''
-        }
-    },
     'H1': {
-        'NAME': "",
-        'DESCRIPTION': "",
+        'NAME': "Long Corridor",
+        'DESCRIPTION': "This long Hallway leads to: "
+                       "North: Long Corridor "
+                       "South: Long Corridor "
+                       "East: Broken Wall Opening ",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H2': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H3': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H4': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H5': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H6': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H7': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H8': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''
         }
     },
     'H9': {
-        'NAME': "",
+        'NAME': "Long Corridor",
         'DESCRIPTION': "",
         'PATHS': {
             'SOUTH': ''

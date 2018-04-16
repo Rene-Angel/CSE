@@ -29,18 +29,11 @@ class Weapon(Item):
     def __init__(self):
         super(Weapon, self).__init__(name, attack, armor, weight, price)
 
-    # def attack(self):
-
 
 class Consumable(Item):
     def __init__(self, name, effect, price):
         super(Consumable, self).__init__(name, price)
         self.effect = effect
-
-    # def use(self):
-    #     print("You used this item")
-    #     self.health += self.effect
-    #     self.effect = True
 
 
 class Sword(Weapon):
@@ -274,6 +267,9 @@ broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2', {None}, N
 alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, {health_potion}, None,
                    "Many different types of ingredients surround you on shelves. "
                    "'ThErE iS nO wAy OuT', says a tall mysterious figure.")
+guard_room = Room("The Guard's Room", None, None, None, None, {sword}, troll,
+                  "There are various weapons scattered across the floor. The skeletons of dead guards are piled in the "
+                  "corner. It seems that you are not alone in this room.")
 
 
 inventory = {}
@@ -287,8 +283,6 @@ while True:
     command = input('>_ ').lower()
     if command == 'quit':
         quit(0)
-    if command == 'take':
-
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
@@ -301,4 +295,3 @@ while True:
     else:
         print('Command not Recognized')
         print()
-    # if command in items:

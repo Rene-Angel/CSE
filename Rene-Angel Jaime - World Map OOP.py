@@ -143,7 +143,9 @@ wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_
 broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2',
                     "There's nothing in here, but mops and brooms. There is though a smell of chemicals coming form "
                     "the sewer pipes.")
-# alchemy_lab = Room("Secret Alchemy Lab", )
+alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None,
+                   "Many different types of ingredients surround you on shelves. "
+                   "'ThErE iS nO wAy OuT', says a tall mysterious figure.")
 
 
 current_node = the_entrance
