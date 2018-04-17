@@ -36,66 +36,66 @@ class Consumable(Item):
         self.effect = effect
 
 
-class Sword(Weapon):
+class sword(Weapon):
     def __init__(self):
-        super(Sword, self).__init__("Sword", 5, 10)
+        super(sword, self).__init__("Sword", 5, 10)
 
 
-class Troll_Axe(Weapon):
+class troll_axe(Weapon):
     def __init__(self):
-        super(Troll_Axe, self).__init__("Troll_Axe", 25, 15)
+        super(troll_axe, self).__init__("Troll_Axe", 25, 15)
 
 
-class War_Axe(Weapon):
+class war_axe(Weapon):
     def __init__(self):
-        super(War_Axe, self).__init__("War Axe", 15, 20)
+        super(war_axe, self).__init__("War Axe", 15, 20)
 
 
-class Health_Potion(Consumable):
+class health_potion(Consumable):
     def __init__(self):
-        super(Health_Potion, self).__init__("Health Potion", 100, 100)
+        super(health_potion, self).__init__("Health Potion", 100, 100)
 
 
-class Apple(Consumable):
+class apple(Consumable):
     def __init__(self):
-        super(Apple, self).__init__("Apple", 5, 1)
+        super(apple, self).__init__("Apple", 5, 1)
 
 
-class Branch(Weapon):
+class branch(Weapon):
     def __init__(self):
-        super(Branch, self).__init__("Tree Branch", 10, 1)
+        super(branch, self).__init__("Tree Branch", 10, 1)
 
 
-class Dagger(Weapon):
+class dagger(Weapon):
     def __init__(self):
-        super(Dagger, self).__init__("Dagger", 15, 10)
+        super(dagger, self).__init__("Dagger", 15, 10)
 
 
-class Ragnarok(Weapon):
+class ragnarok(Weapon):
     def __init__(self):
-        super(Ragnarok, self).__init__("Ragnarok", 25, 50)
+        super(ragnarok, self).__init__("Ragnarok", 25, 50)
 
 
-class Egg(Consumable):
+class egg(Consumable):
     def __init__(self):
-        super(Egg, self).__init__("Egg", 10, 5)
+        super(egg, self).__init__("Egg", 10, 5)
 
 
-class Stick(Weapon):
+class stick(Weapon):
     def __init__(self):
-        super(Stick, self).__init__("Stick", 1, 1)
+        super(stick, self).__init__("Stick", 1, 1)
 
 
-sword = Sword()
-dagger = Dagger()
-egg = Egg()
-apple = Apple()
-troll_axe = Troll_Axe()
-war_axe = War_Axe()
-stick = Stick()
-health_potion = Health_Potion()
-ragnarok = Ragnarok()
-branch = Branch()
+sword = sword()
+dagger = dagger()
+egg = egg()
+apple = apple()
+trollaxe = troll_axe()
+waraxe = war_axe()
+stick = stick()
+health_potion = health_potion()
+ragnarok = ragnarok()
+branch = branch()
 
 
 class Character(object):
@@ -136,6 +136,10 @@ class Room(object):
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
+
+    def take(self, items):
+        global current_node
+        current_node = globals()[getattr(self, items)]
 
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
@@ -276,6 +280,8 @@ inventory = {}
 current_node = the_entrance
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
+taking = ['take', 'pick up']
+short_taking = ['t', 'p']
 
 while True:
     print(current_node.name)
@@ -283,15 +289,34 @@ while True:
     command = input('>_ ').lower()
     if command == 'quit':
         quit(0)
-    elif command in short_directions:
-        pos = short_directions.index(command)
-        command = directions[pos]
-    if command in directions:
+    elif command in short_taking:
+        top = short_taking.index(command)
+        command = directions[top]
+    if command in taking:
         try:
-            current_node.move(command)
+            current_node.take(command)
         except KeyError:
-            print("You cannot go this way.")
+            print("There's nothing here to take.")
             print("")
     else:
-        print('Command not Recognized')
+        print('Command Not Recognized')
         print()
+
+    while True:
+        print(current_node.name)
+        print(current_node.description)
+        command = input('>_ ').lower()
+        if command == 'quit':
+            quit(0)
+        elif command in short_directions:
+            pos = short_directions.index(command)
+            command = directions[pos]
+        if command in directions:
+            try:
+                current_node.move(command)
+            except KeyError:
+                print("You cannot go this way.")
+                print("")
+        else:
+            print('SUPER HOT')
+            print()
