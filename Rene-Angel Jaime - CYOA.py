@@ -86,16 +86,16 @@ class stick(Weapon):
         super(stick, self).__init__("Stick", 1, 1)
 
 
-sword = sword()
-dagger = dagger()
-egg = egg()
-apple = apple()
-trollaxe = troll_axe()
-waraxe = war_axe()
-stick = stick()
-health_potion = health_potion()
-ragnarok = ragnarok()
-branch = branch()
+# sword = sword()
+# dagger = dagger()
+# egg = egg()
+# apple = apple()
+# trollaxe = troll_axe()
+# waraxe = war_axe()
+# stick = stick()
+# health_potion = health_potion()
+# ragnarok = ragnarok()
+# branch = branch()
 
 
 class Character(object):
@@ -114,10 +114,10 @@ class Character(object):
         self.health(dmg)
 
 
-player = Character("Rodin", 500, 25, None, Ragnarok)
-troll = Character("Troll", 150, 25, None, Troll_Axe)
-goblin = Character("Goblin", 100, 10, None, Dagger)
-skeleton = Character("Skeleton", 75, 15, None, Sword)
+player = Character(None, 500, 25, None, ragnarok)
+troll = Character("Troll", 150, 25, None, troll_axe)
+goblin = Character("Goblin", 100, 10, None, dagger)
+skeleton = Character("Skeleton", 75, 15, None, sword)
 dragon = Character("Dragon", 1000, 45, None, None)
 ghost = Character("Ghost", 50, 10, None, None)
 
@@ -138,17 +138,17 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
     def take(self, items):
-        global current_node
-        current_node = globals()[getattr(self, items)]
+        global current_item
+        current_item = globals()[getattr(self, items)]
 
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
-                 None, {Arrows, Ragnarok, War_Axe, Long_Bow}, "This long Hallway leads to: "
+                 None, {ragnarok, war_axe}, "This long Hallway leads to: "
                  "North: Long Corridor "
                  "South: Long Corridor "
                  "East: Broken Wall Opening ")
 hallway_2 = Room("Long Corridor", 'hallway_6', 'hallway_1', None, 'broom_closet',
-                 {Apple, Sword}, None, "This Long Hallway leads to: "
+                 {apple, sword}, None, "This Long Hallway leads to: "
                  "North: Long Corridor "
                  "South: Long Corridor "
                  "East: "
@@ -278,10 +278,10 @@ guard_room = Room("The Guard's Room", None, None, None, None, {sword}, troll,
 
 inventory = {}
 current_node = the_entrance
+current_item = the_entrance.items
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 taking = ['take', 'pick up']
-short_taking = ['t', 'p']
 
 while True:
     print(current_node.name)
@@ -289,34 +289,26 @@ while True:
     command = input('>_ ').lower()
     if command == 'quit':
         quit(0)
-    elif command in short_taking:
-        top = short_taking.index(command)
-        command = directions[top]
+    elif command in short_directions:
+        pos = short_directions.index(command)
+        command = directions[pos]
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print("You cannot go this way.")
+            print("")
+    else:
+        print('Command Not Recognized.')
+        print()
+
     if command in taking:
         try:
-            current_node.take(command)
-        except KeyError:
+            current_item.take(command)
+            print(inventory)
+        except KeyError and AttributeError:
             print("There's nothing here to take.")
             print("")
     else:
-        print('Command Not Recognized')
+        print('Command Not Recognized.')
         print()
-
-    while True:
-        print(current_node.name)
-        print(current_node.description)
-        command = input('>_ ').lower()
-        if command == 'quit':
-            quit(0)
-        elif command in short_directions:
-            pos = short_directions.index(command)
-            command = directions[pos]
-        if command in directions:
-            try:
-                current_node.move(command)
-            except KeyError:
-                print("You cannot go this way.")
-                print("")
-        else:
-            print('SUPER HOT')
-            print()
