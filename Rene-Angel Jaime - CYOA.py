@@ -309,9 +309,7 @@ while True:
             if input in current_node.items:
                 try:
                     current_node.items.append()
-                except KeyError and AttributeError:
-                    print("There's nothing here to take.")
-                    print("")
+
     else:
         print('Command Not Recognized.')
         print()
