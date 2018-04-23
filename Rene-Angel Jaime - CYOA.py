@@ -286,11 +286,13 @@ taking = ['take', 'pick up']
 while True:
     print(current_node.name)
     print(current_node.description)
-    command = input('>_ ').lower()
+    command = input('>_').lower()
     if command == 'quit':
         quit(0)
     elif command in short_directions:
+        # look for which command we typed in
         pos = short_directions.index(command)
+        # Change the command to be the long form
         command = directions[pos]
     if command in directions:
         try:
@@ -299,17 +301,12 @@ while True:
             print("You cannot go this way.")
             print("")
     else:
-        print('Command Not Recognized.')
-        print()
-
+        print('Command not Recognized')
     if command in taking:
         try:
-            current_item.take(command)
-            print("What would you like to take?")
-            if input in current_node.items:
-                try:
-                    current_node.items.append()
-
+            current_node.take(command)
+        except KeyError:
+            print("Nothing here to take.")
+            print("")
     else:
-        print('Command Not Recognized.')
-        print()
+        print('Command not Recognized')
