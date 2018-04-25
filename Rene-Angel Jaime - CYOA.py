@@ -141,9 +141,14 @@ class Room(object):
         global current_item
         current_item = globals()[getattr(self, items)]
 
+    def inven(self):
+        for num in range(len(inventory)):
+            item = inventory
+            print(item)
+
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
-                 None, {ragnarok, war_axe}, "This long Hallway leads to: "
+                 {ragnarok, war_axe}, None, "This long Hallway leads to: "
                  "North: Long Corridor "
                  "South: Long Corridor "
                  "East: Broken Wall Opening ")
@@ -252,7 +257,7 @@ hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', {None}, None,
 hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', {None}, None, "This Long Hallway Leads to: "
                   "North: Long Corridor "
                   "West: Long Corridor ")
-the_entrance = Room("The Entrance", None, 'empty_room', None, None, {None}, None,
+the_entrance = Room("The Entrance", None, 'empty_room', None, None, {sword}, None,
                     "You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... "
                     "But your mission is to investigate where this place leads and eliminate any threats. To the south "
                     "there is a hallway leading to a room.")
@@ -282,6 +287,7 @@ current_item = the_entrance.items
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 taking = ['take']
+inv = {'inventory', 'i', 'inv'}
 
 while True:
     print(current_node.name)
@@ -302,11 +308,20 @@ while True:
             print("")
     else:
         print('Command not Recognized')
+    if command in inventory:
+        try:
+            current_node.inven()
+        except KeyError:
+            print("Nothing in your inventory")
+
     if command in taking:
         try:
-            current_node.take(command)
+            print("What do you want to take?")
+            item_name = input()
+            if item_name == current_node.items:
+                current_node.take(command)
+                items.append(inventory)
             # print("What do you want to take?")
-            item_name = input("What do you want to take?")
         except KeyError:
             print("Nothing here to take.")
             print("")
