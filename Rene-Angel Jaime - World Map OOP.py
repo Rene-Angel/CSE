@@ -163,6 +163,7 @@ while True:
         pos = short_directions.index(command)
         # Change the command to be the long form
         command = directions[pos]
+
     if command in directions:
         try:
             current_node.move(command)

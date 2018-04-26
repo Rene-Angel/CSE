@@ -141,11 +141,6 @@ class Room(object):
         global current_item
         current_item = globals()[getattr(self, items)]
 
-    def inven(self):
-        for num in range(len(inventory)):
-            item = inventory
-            print(item)
-
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
                  {ragnarok, war_axe}, None, "This long Hallway leads to: "
@@ -286,8 +281,6 @@ current_node = the_entrance
 current_item = the_entrance.items
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
-taking = ['take']
-inv = {'inventory', 'i', 'inv'}
 
 while True:
     print(current_node.name)
@@ -308,17 +301,19 @@ while True:
             print("")
     else:
         print('Command not Recognized')
-    if command in inventory:
+
+    if command == 'inventory':
         try:
-            current_node.inven()
+            for item in inventory:
+                print(item)
         except KeyError:
             print("Nothing in your inventory")
 
-    if command in taking:
+    elif command == 'take':
         try:
             print("What do you want to take?")
-            item_name = input()
-            if item_name == current_node.items:
+            input()
+            if input == current_node.items:
                 current_node.take(command)
                 items.append(inventory)
             # print("What do you want to take?")
@@ -326,4 +321,4 @@ while True:
             print("Nothing here to take.")
             print("")
     else:
-        print(None)
+        print()
