@@ -279,6 +279,7 @@ guard_room = Room("The Guard's Room", None, None, None, None, {sword}, troll,
 inventory = {}
 current_node = the_entrance
 current_item = the_entrance.items
+inv1 = current_item
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
@@ -299,26 +300,26 @@ while True:
         except KeyError:
             print("You cannot go this way.")
             print("")
-    else:
-        print('Command not Recognized')
-
-    if command == 'inventory':
+    elif command == 'i':
         try:
-            for item in inventory:
-                print(item)
+            print(inventory)
         except KeyError:
-            print("Nothing in your inventory")
-
-    elif command == 'take':
+            print("There's Nothing in your inventory.")
+            print()
+        # for item in inventory:
+        #     print(item)
+        # else KeyError:
+        #     print("Nothing in your inventory")
+    elif command == 't':
         try:
             print("What do you want to take?")
             input()
             if input == current_node.items:
-                current_node.take(command)
-                items.append(inventory)
+                current_item.take(command)
+                inv1.append(current_item)
             # print("What do you want to take?")
         except KeyError:
             print("Nothing here to take.")
             print("")
     else:
-        print()
+        print("Command Not Recognized.")
