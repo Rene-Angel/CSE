@@ -14,7 +14,7 @@
       <file leaf-file-name="Rene-Angel Jaime - Items.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="17">
               <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -24,8 +24,18 @@
       <file leaf-file-name="Rene-Angel Jaime - CYOA.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="318" column="20" lean-forward="false" selection-start-line="318" selection-start-column="20" selection-end-line="318" selection-end-column="20" />
+            <state relative-caret-position="34">
+              <caret line="117" column="86" lean-forward="false" selection-start-line="117" selection-start-column="86" selection-end-line="117" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Inventory Notes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inventory Notes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -35,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/Notes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="386">
-              <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+              <caret line="179" column="0" lean-forward="true" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,6 +91,7 @@
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - Characters.py" />
         <option value="$PROJECT_DIR$/Notes.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - World Map OOP.py" />
+        <option value="$PROJECT_DIR$/Inventory Notes.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py" />
       </list>
     </option>
@@ -126,29 +137,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Rene-Angel Jaime - CYOA">
-    <configuration name="Class Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Class Notes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method>
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Rene-Angel Jaime - World Map OOP" run_configuration_type="PythonConfigurationType" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Rene-Angel Jaime - Characters" run_configuration_type="PythonConfigurationType" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Inheritance Notes" run_configuration_type="PythonConfigurationType" />
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Programmer" run_configuration_type="PythonConfigurationType" />
-      </method>
-    </configuration>
     <configuration name="Inheritance Notes" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -162,6 +150,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CSE" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Inheritance Notes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="Inventory Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files\Python36\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Inventory Notes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -290,19 +295,19 @@
       <item index="1" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Characters" />
       <item index="2" class="java.lang.String" itemvalue="Python.Inheritance Notes" />
       <item index="3" class="java.lang.String" itemvalue="Python.Programmer" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Class Notes" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Programmer" />
-      <item index="6" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Items" />
-      <item index="7" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - CYOA" />
-      <item index="8" class="java.lang.String" itemvalue="Python.Notes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Programmer" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Items" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - CYOA" />
+      <item index="7" class="java.lang.String" itemvalue="Python.Notes" />
+      <item index="8" class="java.lang.String" itemvalue="Python.Inventory Notes" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - CYOA" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Notes" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Items" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Programmer" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Class Notes" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Inventory Notes" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Notes" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Items" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - Programmer" />
       </list>
     </recent_temporary>
   </component>
@@ -324,13 +329,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2035139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.44164038" sideWeight="0.11713031" order="7" side_tool="true" content_ui="tabs" x="675" y="177" width="503" height="355" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25832012" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25832012" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -375,13 +381,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Warmups.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Notes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2329">
@@ -656,14 +655,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Characters.py" />
-    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - World Map OOP.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -671,18 +662,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - Items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Notes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
-          <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+          <caret line="179" column="0" lean-forward="true" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inventory Notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="318" column="20" lean-forward="false" selection-start-line="318" selection-start-column="20" selection-end-line="318" selection-end-column="20" />
+        <state relative-caret-position="34">
+          <caret line="117" column="86" lean-forward="false" selection-start-line="117" selection-start-column="86" selection-end-line="117" selection-end-column="86" />
           <folding />
         </state>
       </provider>
