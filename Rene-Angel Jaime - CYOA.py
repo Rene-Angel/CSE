@@ -1,4 +1,4 @@
-import string
+# import string
 # import ...(statements)
 # class definitions
 # items first
@@ -9,17 +9,16 @@ import string
 
 
 class Item(object):
-    def __init__(self, name, attack, armor, weight, price):
+    def __init__(self, name, price):
         self.name = name
-        self.attack = attack
-        self.armor = armor
-        self.weight = weight
+        # self.armor = armor
         self.price = price
 
 
 class Weapon(Item):
-    def __init__(self):
-        super(Weapon, self).__init__(name, attack, armor, weight, price)
+    def __init__(self, name, attack, price):
+        super(Weapon, self).__init__(name, price)
+        self.attack = attack
 
 
 class Consumable(Item):
@@ -131,12 +130,12 @@ class Room(object):
 
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
-                 Item[ragnarok, war_axe], None, 'This long Hallway leads to: '
+                 Item(ragnarok, war_axe), None, 'This long Hallway leads to: '
                                                 'North: Long Corridor '
                                                 'South: Long Corridor '
                                                 'East: Broken Wall Opening ')
 hallway_2 = Room("Long Corridor", 'hallway_6', 'hallway_1', None, 'broom_closet',
-                 Item[apple, sword], None, 'This Long Hallway leads to: '
+                 Item(apple, sword), None, 'This Long Hallway leads to: '
                                            'North: Long Corridor '
                                            'South: Long Corridor '
                                            'East: '
@@ -240,7 +239,7 @@ hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', None, None, '
 hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', None, None, 'This Long Hallway Leads to: '
                                                                                       'North: Long Corridor '
                                                                                       'West: Long Corridor ')
-the_entrance = Room("The Entrance", None, 'empty_room', None, None, Item[sword], None,
+the_entrance = Room("The Entrance", None, 'empty_room', None, None, Item(sword, 5), None,
                     'You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... '
                     'But your mission is to investigate where this place leads and eliminate any threats. To the south '
                     'there is a hallway leading to a room.')
@@ -256,10 +255,10 @@ wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_
 broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2', None, None,
                     'There\'s nothing in here, but mops and brooms. There is a smell of chemicals coming from '
                     'the sewer pipes.')
-alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, Item[health_potion], None,
+alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, Item(health_potion, 5), None,
                    'Many different types of ingredients surround you on shelves. '
                    '\'ThErE iS nO wAy OuT\', says a tall mysterious figure.')
-guard_room = Room("The Guard's Room", None, None, None, None, Item[sword], troll,
+guard_room = Room("The Guard's Room", None, None, None, None, Item(sword, 10), troll,
                   'There are various weapons scattered across the floor. The skeletons of dead guards are piled in the '
                   'corner. It seems that you are not alone in this room.')
 
@@ -288,7 +287,7 @@ while True:
             print("")
     elif command == 'i':
         try:
-            for item in items.values():
+            for item in item.values():
                 print('\t'.join([str(x) for x in [item.name]]))
         except KeyError:
             print("There's Nothing in your inventory.")
@@ -302,8 +301,7 @@ while True:
             print("What do you want to take?")
             input()
             if input == current_node.items:
-                items[item.name] = current_item
-                inventory.append(current_item)
+                inventory.append(current_node.items)
             # print("What do you want to take?")
         except KeyError:
             print("Nothing here to take.")

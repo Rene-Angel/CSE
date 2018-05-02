@@ -34,5 +34,4 @@ inventory.take(Sword)  # Adding this would call an item and add it into the inve
 # inventory.take(Item('Sword', 15, 0, 12, 20))  # Adding this would create the object within the inventory
 inventory.print_inventory()
 
-inv = list(inventory)
-while True:
+# while True:
