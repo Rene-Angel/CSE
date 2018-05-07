@@ -68,15 +68,25 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-entrance = Room("Hideout Entrance", None, 'sewer_tunnel', None, None, {Sword}, None,
-                "The only way of entering the secret hideout (To be honest, its just a manhole in the middle of a "
-                "street). A sword was weirdly laying on the floor, someone must have dropped it. To the north is a "
-                "tunnel with a faint light.")
-sewer_tunnel = Room('Sewers', 'entrance', None, None, None, {None}, None,
-                    "There was an abandoned lantern on the floor, but by the looks of it you were not alone.")
+START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', {Sword}, None,
+             "You are at the entrance of this dark dungeon. A large dark oak wood door stands at your northern side "
+             "locked. To your east is a candle lit corridor leading to a circular room. As for your west, a similar "
+             "corridor although there were not any candles, leading to an triangular room.")
+LIBRARY = Room("Library", None, None, None, 'START', {None}, None,
+               "This room has walls filled with books, and tables in order with chairs surrounding them. A locked book "
+               "case grabs your attention however, with a key inside.")
+LABORATORY = Room("Alchemy Laboratory", None, None, 'Start', None, {None}, None,
+                  "shelves on the walls are stacked with various ingredients and potions. The floor is marked with an "
+                  "alchemist's circle of transmutation, and there is a table with a glowing sword and potion.")
+HALL = Room("Main Hall - Hallway", 'START', 'DINING', None, None, {None}, None,
+            "The Main Hall of this dungeon continues toward south. Skeletal corpses lay on the floor scorched. There "
+            "was a faintly lit lantern on the floor, but by the looks of it you were not alone. You hear footsteps.")
+DINING = Room("Dining Room", 'HALL', 'QUARTERS', 'KITCHEN', None, {None}, None,
+              "A large round table stands before you with a daggers stabbed through it as if a group of rogues were "
+              "plotting here for a quest. The dorms are to your south, where you still hear footsteps.")
 
 inventory = Inventory()
-current_node = entrance
+current_node = START
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
@@ -103,6 +113,6 @@ while True:
         input('>_').lower()
         if input == current_node.inv:
             try:
-                inventory.take(current_node.inv)
+                # inventory.take(current_node.inv)
             except KeyError:
                 print("There's nothing to take.")
