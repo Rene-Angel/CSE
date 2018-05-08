@@ -77,16 +77,7 @@ class stick(Weapon):
         super(stick, self).__init__("Stick", 1, 1)
 
 
-# sword = sword()
-# dagger = dagger()
-# egg = egg()
-# apple = apple()
-# trollaxe = troll_axe()
-# waraxe = war_axe()
-# stick = stick()
-# health_potion = health_potion()
-# ragnarok = ragnarok()
-# branch = branch()
+
 
 
 class Character(object):
@@ -128,6 +119,17 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+
+sword = sword()
+dagger = dagger()
+egg = egg()
+apple = apple()
+trollaxe = troll_axe()
+waraxe = war_axe()
+stick = stick()
+health_potion = health_potion()
+ragnarok = ragnarok()
+branch = branch()
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
                  Item(ragnarok, war_axe), None, 'This long Hallway leads to: '
