@@ -27,57 +27,54 @@ class Consumable(Item):
         self.effect = effect
 
 
-class sword(Weapon):
+class Sword(Weapon):
     def __init__(self):
-        super(sword, self).__init__("Sword", 5, 10)
+        super(Sword, self).__init__("Sword", 5, 10)
 
 
-class troll_axe(Weapon):
+class Troll_axe(Weapon):
     def __init__(self):
-        super(troll_axe, self).__init__("Troll_Axe", 25, 15)
+        super(Troll_axe, self).__init__("Troll Axe", 25, 15)
 
 
-class war_axe(Weapon):
+class War_axe(Weapon):
     def __init__(self):
-        super(war_axe, self).__init__("War Axe", 15, 20)
+        super(War_axe, self).__init__("War Axe", 15, 20)
 
 
-class health_potion(Consumable):
+class Health_potion(Consumable):
     def __init__(self):
-        super(health_potion, self).__init__("Health Potion", 100, 100)
+        super(Health_potion, self).__init__("Health Potion", 100, 100)
 
 
-class apple(Consumable):
+class Apple(Consumable):
     def __init__(self):
-        super(apple, self).__init__("Apple", 5, 1)
+        super(Apple, self).__init__("Apple", 5, 1)
 
 
-class branch(Weapon):
+class Branch(Weapon):
     def __init__(self):
-        super(branch, self).__init__("Tree Branch", 10, 1)
+        super(Branch, self).__init__("Tree Branch", 10, 1)
 
 
-class dagger(Weapon):
+class Dagger(Weapon):
     def __init__(self):
-        super(dagger, self).__init__("Dagger", 15, 10)
+        super(Dagger, self).__init__("Dagger", 15, 10)
 
 
-class ragnarok(Weapon):
+class Ragnarok(Weapon):
     def __init__(self):
-        super(ragnarok, self).__init__("Ragnarok", 25, 50)
+        super(Ragnarok, self).__init__("Ragnarok", 25, 50)
 
 
-class egg(Consumable):
+class Egg(Consumable):
     def __init__(self):
-        super(egg, self).__init__("Egg", 10, 5)
+        super(Egg, self).__init__("Egg", 10, 5)
 
 
-class stick(Weapon):
+class Stick(Weapon):
     def __init__(self):
-        super(stick, self).__init__("Stick", 1, 1)
-
-
-
+        super(Stick, self).__init__("Stick", 1, 1)
 
 
 class Character(object):
@@ -85,7 +82,7 @@ class Character(object):
         self.name = name
         self.health = health
         self.stats = stats
-        self.inv = inv
+        self.inv = list(inv)
         self.attack_amt = attack
 
     def attack(self, target):
@@ -96,14 +93,6 @@ class Character(object):
         self.health(dmg)
 
 
-player = Character(None, 500, 25, None, ragnarok)
-troll = Character("Troll", 150, 25, None, troll_axe)
-goblin = Character("Goblin", 100, 10, None, dagger)
-skeleton = Character("Skeleton", 75, 15, None, sword)
-dragon = Character("Dragon", 1000, 45, None, None)
-ghost = Character("Ghost", 50, 10, None, None)
-
-
 class Room(object):
     def __init__(self, name, north, south, east, west, items, character, description):
         self.name = name
@@ -112,7 +101,7 @@ class Room(object):
         self.east = east
         self.west = west
         self.description = description
-        self.items = items()
+        self.items = list(items)
         self.character = character
 
     def move(self, direction):
@@ -120,28 +109,35 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-sword = sword()
-dagger = dagger()
-egg = egg()
-apple = apple()
-trollaxe = troll_axe()
-waraxe = war_axe()
-stick = stick()
-health_potion = health_potion()
-ragnarok = ragnarok()
-branch = branch()
+sword = Sword()
+dagger = Dagger()
+egg = Egg()
+apple = Apple()
+trollaxe = Troll_axe()
+waraxe = War_axe()
+stick = Stick()
+healthpotion = Health_potion()
+ragnarok = Ragnarok()
+branch = Branch()
+
+player = Character(None, 500, 25, None, [ragnarok])
+troll = Character("Troll", 150, 25, None, [trollaxe])
+goblin = Character("Goblin", 100, 10, None, [dagger])
+skeleton = Character("Skeleton", 75, 15, None, [sword])
+dragon = Character("Dragon", 1000, 45, None, None)
+ghost = Character("Ghost", 50, 10, None, None)
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
-                 Item(ragnarok, war_axe), None, 'This long Hallway leads to: '
-                                                'North: Long Corridor '
-                                                'South: Long Corridor '
-                                                'East: Broken Wall Opening ')
+                 [sword, waraxe], None, 'This long Hallway leads to: '
+                                        'North: Long Corridor '
+                                        'South: Long Corridor '
+                                        'East: Broken Wall Opening ')
 hallway_2 = Room("Long Corridor", 'hallway_6', 'hallway_1', None, 'broom_closet',
-                 Item(apple, sword), None, 'This Long Hallway leads to: '
-                                           'North: Long Corridor '
-                                           'South: Long Corridor '
-                                           'East: '
-                                           'West: ')
+                 [apple, Sword], None, 'This Long Hallway leads to: '
+                                       'North: Long Corridor '
+                                       'South: Long Corridor '
+                                       'East: '
+                                       'West: ')
 hallway_3 = Room("Long Corridor", 'hallway_1', None, 'hallway_4', None,
                  None, None, 'This Long Hallway leads to: '
                              'North: Long Corridor '
@@ -241,7 +237,7 @@ hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', None, None, '
 hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', None, None, 'This Long Hallway Leads to: '
                                                                                       'North: Long Corridor '
                                                                                       'West: Long Corridor ')
-the_entrance = Room("The Entrance", None, 'empty_room', None, None, Item(sword, 5), None,
+the_entrance = Room("The Entrance", None, 'empty_room', None, None, [sword], None,
                     'You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... '
                     'But your mission is to investigate where this place leads and eliminate any threats. To the south '
                     'there is a hallway leading to a room.')
@@ -257,13 +253,12 @@ wall_opening = Room("Broken Wall Opening", None, None, 'leaking_room', 'hallway_
 broom_closet = Room("The Broom Closet", None, None, None, 'hallway_2', None, None,
                     'There\'s nothing in here, but mops and brooms. There is a smell of chemicals coming from '
                     'the sewer pipes.')
-alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, Item(health_potion, 5), None,
+alchemy_lab = Room("Secret Alchemy Lab", None, 'library', None, None, [healthpotion], None,
                    'Many different types of ingredients surround you on shelves. '
                    '\'ThErE iS nO wAy OuT\', says a tall mysterious figure.')
-guard_room = Room("The Guard's Room", None, None, None, None, Item(sword, 10), troll,
+guard_room = Room("The Guard's Room", None, None, None, None, [trollaxe], troll,
                   'There are various weapons scattered across the floor. The skeletons of dead guards are piled in the '
                   'corner. It seems that you are not alone in this room.')
-
 
 inventory = {}
 current_node = the_entrance
@@ -288,25 +283,23 @@ while True:
             print("You cannot go this way.")
             print("")
     elif command == 'i':
-        try:
-            for item in item.values():
-                print('\t'.join([str(x) for x in [item.name]]))
-        except KeyError:
-            print("There's Nothing in your inventory.")
-            print()
-        # for item in inventory:
-        #     print(item)
-        # else KeyError:
-        #     print("Nothing in your inventory")
-    elif command == 't':
-        try:
-            print("What do you want to take?")
-            input()
-            if input == current_node.items:
-                inventory.append(current_node.items)
-            # print("What do you want to take?")
-        except KeyError:
-            print("Nothing here to take.")
-            print("")
+        if len(player.inv) > 0:
+            print("You have the following items in your inventory: ")
+            for item in player.inv:
+                print(item.name)
+        else:
+            print("You have nothing in your inventory.")
+    if 'take' in command:
+        item_requested = command[5:]
+        found = False
+        for item in current_node.items:
+            if item.name == item_requested:
+                player.inv.append(item)
+                for items in player.inv:
+                    print("You take %s." % item_requested)
+                    print("You have %s in your inventory." % item.name)
+                    print()
+                found = True
+                current_node.items.remove(item)
     else:
         print("Command Not Recognized.")
