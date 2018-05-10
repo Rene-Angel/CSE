@@ -82,7 +82,7 @@ class Character(object):
         self.name = name
         self.health = health
         self.stats = stats
-        self.inv = list(inv)
+        self.inv = list()
         self.attack_amt = attack
 
     def attack(self, target):
@@ -101,7 +101,7 @@ class Room(object):
         self.east = east
         self.west = west
         self.description = description
-        self.items = list(items)
+        self.items = items
         self.character = character
 
     def move(self, direction):
@@ -124,8 +124,8 @@ player = Character(None, 500, 25, None, [ragnarok])
 troll = Character("Troll", 150, 25, None, [trollaxe])
 goblin = Character("Goblin", 100, 10, None, [dagger])
 skeleton = Character("Skeleton", 75, 15, None, [sword])
-dragon = Character("Dragon", 1000, 45, None, None)
-ghost = Character("Ghost", 50, 10, None, None)
+dragon = Character("Dragon", 1000, 45, None, [])
+ghost = Character("Ghost", 50, 10, None, [None])
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
                  [sword, waraxe], None, 'This long Hallway leads to: '
@@ -139,104 +139,104 @@ hallway_2 = Room("Long Corridor", 'hallway_6', 'hallway_1', None, 'broom_closet'
                                        'East: '
                                        'West: ')
 hallway_3 = Room("Long Corridor", 'hallway_1', None, 'hallway_4', None,
-                 None, None, 'This Long Hallway leads to: '
-                             'North: Long Corridor '
-                             'South: '
-                             'East: Long Corridor '
-                             'West: ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: Long Corridor '
+                               'South: '
+                               'East: Long Corridor '
+                               'West: ')
 hallway_4 = Room("Long Corridor", None, 'hallway_5', None, 'hallway_3',
-                 None, None, 'This Long Hallway leads to: '
-                             'North: Long Corridor '
-                             'South: '
-                             'East: '
-                             'West: Long Corridor ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: Long Corridor '
+                               'South: '
+                               'East: '
+                               'West: Long Corridor ')
 hallway_5 = Room("Long Corridor", 'hallway_4', 'hallway_6', None, None,
-                 None, None, 'This Long Hallway leads to: '
-                             'North: Long Corridor '
-                             'South: Long Corridor '
-                             'East: '
-                             'West: ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: Long Corridor '
+                               'South: Long Corridor '
+                               'East: '
+                               'West: ')
 hallway_6 = Room("Long Corridor", None, 'hallway_2', None, 'hallway_7',
-                 None, None, 'This Long Hallway leads to: '
-                             'North: '
-                             'South: Long Corridor '
-                             'East: '
-                             'West: Long Corridor ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: '
+                               'South: Long Corridor '
+                               'East: '
+                               'West: Long Corridor ')
 hallway_7 = Room("Long Corridor", None, None, 'hallway_6', 'hallway_8',
-                 None, None, 'This Long Hallway leads to: '
-                             'North: '
-                             'East: Long Corridor '
-                             'West: Long Corridor ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: '
+                               'East: Long Corridor '
+                               'West: Long Corridor ')
 hallway_8 = Room("Long Corridor", None, None, 'hallway_7', 'hallway_9',
-                 None, None, 'This Long Hallway leads to: '
-                             'North: '
-                             'East: Long Corridor '
-                             'West: Long Corridor ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: '
+                               'East: Long Corridor '
+                               'West: Long Corridor ')
 hallway_9 = Room("Long Corridor", None, None, 'hallway_8', 'hallway_10',
-                 None, None, 'This Long Hallway leads to: '
-                             'North: '
-                             'East: Long Corridor '
-                             'West: Long Corridor ')
+                 [None], None, 'This Long Hallway leads to: '
+                               'North: '
+                               'East: Long Corridor '
+                               'West: Long Corridor ')
 hallway_10 = Room("Long Corridor", None, None, 'hallway_9', None,
-                  None, None, 'This Long Hallway leads to: '
-                              'North: '
-                              'East: Long Corridor '
-                              'West: ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: '
+                                'East: Long Corridor '
+                                'West: ')
 hallway_11 = Room("Long Corridor", None, None, None, None,
-                  None, None, 'This Long Hallway leads to: '
-                              'North: '
-                              'South: '
-                              'East: ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: '
+                                'South: '
+                                'East: ')
 hallway_12 = Room("Long Corridor", None, None, 'hallway_24', 'hallway_13',
-                  None, None, 'This Long Hallway leads to: '
-                              'South: '
-                              'East: Long Corridor '
-                              'West: Long Corridor ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'South: '
+                                'East: Long Corridor '
+                                'West: Long Corridor ')
 hallway_13 = Room("Long Corridor", 'hallway_14', None, 'hallway_18', 'hallway_12',
-                  None, None, 'This Long Hallway leads to: '
-                              'North: Long Corridor '
-                              'East: Long Corridor '
-                              'West: Long Corridor ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: Long Corridor '
+                                'East: Long Corridor '
+                                'West: Long Corridor ')
 hallway_14 = Room("Long Corridor", 'hallway_15', 'hallway_13', None, None,
-                  None, None, 'This Long Hallway leads to: '
-                              'North: Long Corridor '
-                              'South: Long Corridor '
-                              'East: ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: Long Corridor '
+                                'South: Long Corridor '
+                                'East: ')
 hallway_15 = Room("Long Corridor", 'hallway_17', 'hallway_14', None, None,  # Decided to Remove 'hallway_16' unnecessary
-                  None, None, 'This Long Hallway leads to: '
-                              'North: Long Corridor '
-                              'South: Long Corridor '
-                              'East: '
-                              'West: ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: Long Corridor '
+                                'South: Long Corridor '
+                                'East: '
+                                'West: ')
 hallway_17 = Room("Long Corridor", None, 'hallway_15', None, None,
-                  None, None, 'This Long Hallway leads to: '
-                              'North: '
-                              'South: Long Corridor '
-                              'East: '
-                              'West: ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: '
+                                'South: Long Corridor '
+                                'East: '
+                                'West: ')
 hallway_18 = Room("Long Corridor", None, None, 'hallway_13', 'hallway_20',  # Decided to remove 'hallway_19' unnecessary
-                  None, None, 'This Long Hallway leads to: '
-                              'North: '
-                              'South: '
-                              'East: Long Corridor '
-                              'West: Long Corridor ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: '
+                                'South: '
+                                'East: Long Corridor '
+                                'West: Long Corridor ')
 hallway_20 = Room("Long Corridor", None, None, 'hallway_18', 'hallway_21',
-                  None, None, 'This Long Hallway leads to: '
-                              'North: '
-                              'East: Long Corridor '
-                              'West: Long Corridor ')
-hallway_21 = Room("Long Corridor", None, None, 'hallway_20', 'hallway_23', None, None, 'This Long Hallway leads to: '
-                                                                                       'North: '
-                                                                                       'South: '
-                                                                                       'East: Long Corridor '
-                                                                                       'West: Long Corridor ')
-hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', None, None, 'This Long Hallway leads to: '
-                                                                               'North: '
-                                                                               'East: '
-                                                                               'West: Long Corridor ')
-hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', None, None, 'This Long Hallway Leads to: '
-                                                                                      'North: Long Corridor '
-                                                                                      'West: Long Corridor ')
+                  [None], None, 'This Long Hallway leads to: '
+                                'North: '
+                                'East: Long Corridor '
+                                'West: Long Corridor ')
+hallway_21 = Room("Long Corridor", None, None, 'hallway_20', 'hallway_23', [None], None, 'This Long Hallway leads to: '
+                                                                                         'North: '
+                                                                                         'South: '
+                                                                                         'East: Long Corridor '
+                                                                                         'West: Long Corridor ')
+hallway_23 = Room("Long Corridor", None, None, None, 'hallway_23', [None], None, 'This Long Hallway leads to: '
+                                                                                 'North: '
+                                                                                 'East: '
+                                                                                 'West: Long Corridor ')
+hallway_24 = Room("Long Corridor", 'hallway_5', None, None, 'hallway_12', [None], None, 'This Long Hallway Leads to: '
+                                                                                        'North: Long Corridor '
+                                                                                        'West: Long Corridor ')
 the_entrance = Room("The Entrance", None, 'empty_room', None, None, [sword], None,
                     'You enter a room through a ladder, from where the top leads to an abandoned subway tunnel... '
                     'But your mission is to investigate where this place leads and eliminate any threats. To the south '
