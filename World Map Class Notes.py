@@ -5,72 +5,116 @@ class Item(object):
 
 
 class Weapon(Item):
-    def __init__(self, name, atk_dmg, weight):
-        super(Weapon, self).__init__(name, weight)
-        self.atk_dmg = atk_dmg
+    def __init__(self, name, attack, price):
+        super(Weapon, self).__init__(name, price)
+        self.attack = attack
+
+
+class Consumable(Item):
+    def __init__(self, name, effect, price):
+        super(Consumable, self).__init__(name, price)
+        self.effect = effect
 
 
 class Sword(Weapon):
-    def __init__(self, ):
-        super(Sword, self).__init__('sword', 15, 5)
+    def __init__(self):
+        super(Sword, self).__init__("Sword", 5, 10)
 
 
-# class Consumable(Item):
-#     def __init__(self, name, effect):
-#         super(Consumable, self).__init__(name, weight)
-#         self.effect = effect
+class Troll_axe(Weapon):
+    def __init__(self):
+        super(Troll_axe, self).__init__("Troll Axe", 25, 15)
+
+
+class War_axe(Weapon):
+    def __init__(self):
+        super(War_axe, self).__init__("War Axe", 15, 20)
+
+
+class Health_potion(Consumable):
+    def __init__(self):
+        super(Health_potion, self).__init__("Health Potion", 100, 100)
+
+
+class Apple(Consumable):
+    def __init__(self):
+        super(Apple, self).__init__("Apple", 5, 1)
+
+
+class Branch(Weapon):
+    def __init__(self):
+        super(Branch, self).__init__("Tree Branch", 10, 1)
+
+
+class Dagger(Weapon):
+    def __init__(self):
+        super(Dagger, self).__init__("Dagger", 15, 10)
+
+
+class Ragnarok(Weapon):
+    def __init__(self):
+        super(Ragnarok, self).__init__("Ragnarok", 25, 50)
+
+
+class Egg(Consumable):
+    def __init__(self):
+        super(Egg, self).__init__("Egg", 10, 5)
+
+
+class Stick(Weapon):
+    def __init__(self):
+        super(Stick, self).__init__("Stick", 1, 1)
 
 
 class Character(object):
-    def __init__(self, name, hp, atk, stats, inv):
+    def __init__(self, name, health, attack, stats, inv):
         self.name = name
-        self.hp = hp
+        self.health = health
         self.stats = stats
         self.inv = inv
-        self.atk = atk
+        self.attack_amt = attack
 
-        # def atk(self, target):
-        #     if target.damage(self.atk):
-        #         print("You took Damage.")
-        #
-        # def self_dmg(self, dmg):
-        #     self.hp -= dmg
+    def attack(self, target):
+        if target.damage(self.attack_amt):
+            print("You took Damage.")
 
-
-class Inventory(object):
-    def __init__(self):
-        self.items = {}
-        self.empty = True
-
-    def take(self, item):
-        self.items[item.name] = item
-        self.empty = False
-
-    #
-    # def drop(self, item):
-    #     self.items.remove[item]
-
-    def print_inventory(self):
-        for item in self.items.values():
-            print('\t'.join([str(x) for x in [item.name]]))
+    def take_damage(self, dmg):
+        self.health(dmg)
 
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, item, character, description):
+    def __init__(self, name, north, south, east, west, room_items, character, description):
         self.name = name
         self.north = north
         self.south = south
         self.east = east
         self.west = west
         self.description = description
-        self.item = item
+        self.items = room_items
         self.character = character
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+
 sword = Sword()
+dagger = Dagger()
+egg = Egg()
+apple = Apple()
+trollaxe = Troll_axe()
+waraxe = War_axe()
+stick = Stick()
+healthpotion = Health_potion()
+ragnarok = Ragnarok()
+branch = Branch()
+
+player = Character(None, 500, 25, None, [ragnarok])
+troll = Character("Troll", 150, 25, None, [trollaxe])
+goblin = Character("Goblin", 100, 10, None, [dagger])
+skeleton = Character("Skeleton", 75, 15, None, [sword])
+dragon = Character("Dragon", 1000, 45, None, [None])
+ghost = Character("Ghost", 50, 10, None, [None])
 
 START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [Sword], None,
              "You are at the entrance of this dark dungeon. A large dark oak wood door stands at your northern side "
@@ -92,7 +136,7 @@ DINING = Room("Dining Room", 'HALL', 'QUARTERS', 'KITCHEN', None, [None], None,
 controls = "t = take" \
            "i = inventory" \
            "n, s, e, w = moving to rooms"
-inventory = Inventory()
+inventory = {}
 current_node = START
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
@@ -101,7 +145,6 @@ while True:
     print(current_node.name)
     print(current_node.description)
     command = input('>_').lower()
-
     if command == 'quit':
         quit(0)
     elif command in short_directions:
@@ -114,17 +157,24 @@ while True:
         except KeyError:
             print("You cannot go this way.")
             print("")
-
-    if command == 'i':
-        print(inventory.print_inventory())
-    elif inventory:
-        print("You have nothing in your inventory.")
-
-    if command == 't':
-        print('Take What?')
-        input('>_').lower()
-        if input == current_node.item:
-            try:
-
-            except KeyError:
-                print("There's nothing to take.")
+    elif command == 'inventory':
+        if len(player.inv) > 0:
+            print("You have the following items in your inventory: ")
+            for item in player.inv:
+                print(item.name)
+        else:
+            print("You have nothing in your inventory.")
+    elif command == 'take':
+        item_requested = command[5:]
+        found = False
+        for item in current_node.items:
+            if item.name == item_requested:
+                player.inv.append(item)
+                for items in player.inv:
+                    print("You take %s." % item_requested)
+                    print("You have %s in your inventory." % item.name)
+                    print()
+                found = True
+                current_node.items.remove(item)
+            else:
+                print("There's nothing there to take.")

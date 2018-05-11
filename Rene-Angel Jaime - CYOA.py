@@ -124,7 +124,7 @@ player = Character(None, 500, 25, None, [ragnarok])
 troll = Character("Troll", 150, 25, None, [trollaxe])
 goblin = Character("Goblin", 100, 10, None, [dagger])
 skeleton = Character("Skeleton", 75, 15, None, [sword])
-dragon = Character("Dragon", 1000, 45, None, [])
+dragon = Character("Dragon", 1000, 45, None, [None])
 ghost = Character("Ghost", 50, 10, None, [None])
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
@@ -275,7 +275,6 @@ while True:
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
-
     if command in directions:
         try:
             current_node.move(command)
@@ -301,5 +300,5 @@ while True:
                     print()
                 found = True
                 current_node.items.remove(item)
-    else:
-        print("Command Not Recognized.")
+else:
+    print("Command Not Recognized.")
