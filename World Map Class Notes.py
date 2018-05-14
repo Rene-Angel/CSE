@@ -83,19 +83,22 @@ class Character(object):
 
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, room_items, character, description):
+    def __init__(self, name, north, south, east, west, roominv, character, description):
         self.name = name
         self.north = north
         self.south = south
         self.east = east
         self.west = west
         self.description = description
-        self.items = room_items
+        self.roominv = [] and roominv
         self.character = character
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
+
+    # def addtoinventory(self, item):
+    #
 
 
 sword = Sword()
@@ -135,11 +138,15 @@ DINING = Room("Dining Room", 'HALL', 'QUARTERS', 'KITCHEN', None, [None], None,
 
 controls = "t = take" \
            "i = inventory" \
-           "n, s, e, w = moving to rooms"
-inventory = {}
+           "u = use" \
+           "n, s, e, w = moving in directions 'North', 'South', 'East', 'West'"
+inventory = []
 current_node = START
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
+interactions = ['take', 'inventory', 'use']
+short_interactions = ['t', 'i', 'u']
+
 
 while True:
     print(current_node.name)
@@ -150,31 +157,56 @@ while True:
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
-
-    if command in directions:
+    elif command in short_interactions:
+        ctrl = short_interactions.index(command)
+        command = interactions[ctrl]
+    elif command in directions:
         try:
             current_node.move(command)
         except KeyError:
             print("You cannot go this way.")
             print("")
-    elif command == 'inventory':
-        if len(player.inv) > 0:
-            print("You have the following items in your inventory: ")
-            for item in player.inv:
-                print(item.name)
-        else:
-            print("You have nothing in your inventory.")
-    elif command == 'take':
-        item_requested = command[5:]
-        found = False
-        for item in current_node.items:
-            if item.name == item_requested:
-                player.inv.append(item)
-                for items in player.inv:
-                    print("You take %s." % item_requested)
-                    print("You have %s in your inventory." % item.name)
-                    print()
-                found = True
-                current_node.items.remove(item)
-            else:
-                print("There's nothing there to take.")
+    elif command in interactions:
+        if command == 'inventory' or 'i':
+            if len(player.inv) > 0:
+                print("You have the following items in your inventory: ")
+                for item in player.inv:
+                    print(item.name)
+            elif len(player.inv) < 0:
+                print("You have nothing in your inventory.")
+                print("")
+        elif command == 't':
+            item_requested = input("What are you taking? "
+                                   ">_")
+            found = False
+            for item in current_node.roominv:
+                if item.name == item_requested:
+                    player.inv.append(item)
+                    for items in player.inv:
+                        print("You take %s." % item_requested)
+                        print("You have %s in your inventory." % item.name)
+                        print("")
+                    found = True
+                    current_node.roominv.append(item)
+                else:
+                    print("There's nothing there to take.")
+        elif command == 'take':
+            item_requested = command[5:]
+            found = False
+            for item in current_node.roominv:
+                if item.name == item_requested:
+                    player.inv.append(item)
+                    for items in player.inv:
+                        print("You take %s." % item_requested)
+                        print("You have %s in your inventory." % item.name)
+                        print("")
+                    found = True
+                    current_node.roominv.append(item)
+                else:
+                    print("There's nothing there to take.")
+        elif command == 'use' or 'u':
+            pass
+    elif command == '':
+        print("You die of inactivity.")
+        print("You lose.")
+        quit(0)
