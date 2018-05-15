@@ -290,15 +290,21 @@ while True:
             print("You have nothing in your inventory.")
     if 'take' in command:
         item_requested = command[5:]
-        found = False
-        for item in current_node.items:
-            if item.name == item_requested:
-                player.inv.append(item)
-                for items in player.inv:
-                    print("You take %s." % item_requested)
-                    print("You have %s in your inventory." % item.name)
-                    print()
-                found = True
-                current_node.items.remove(item)
+        if item_requested in current_node.items:
+            player.inv.append(item)
+            for current_node.items in player.inv:
+                print("You picked up %s." % item.name)
+                print("You now have %s in your inventory." % item.name)
+
+        # found = False
+        # for item in current_node.items:
+        #     if item.name == item_requested:
+        #         player.inv.append(item)
+        #         for items in player.inv:
+        #             print("You take %s." % item_requested)
+        #             print("You have %s in your inventory." % item.name)
+        #             print()
+        #         found = True
+        #         current_node.items.remove(item)
 else:
     print("Command Not Recognized.")

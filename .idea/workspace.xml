@@ -14,8 +14,8 @@
       <file leaf-file-name="Rene-Angel Jaime - CYOA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="284" column="31" lean-forward="false" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
+            <state relative-caret-position="17">
+              <caret line="271" column="0" lean-forward="true" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -24,8 +24,8 @@
       <file leaf-file-name="World Map Class Notes.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/World Map Class Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="152" column="69" lean-forward="false" selection-start-line="152" selection-start-column="69" selection-end-line="152" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/Notes.py" />
         <option value="$PROJECT_DIR$/Rene-Angel Jaime - World Map OOP.py" />
         <option value="$PROJECT_DIR$/Inventory Notes.py" />
-        <option value="$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py" />
         <option value="$PROJECT_DIR$/Items and Inventory System Notes.py" />
+        <option value="$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py" />
         <option value="$PROJECT_DIR$/World Map Class Notes.py" />
       </list>
     </option>
@@ -120,6 +120,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,8 +133,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,8 +320,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.World Map Class Notes" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Items and Inventory System Notes" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - CYOA" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Rene-Angel Jaime - CYOA" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Items and Inventory System Notes" />
         <item index="3" class="java.lang.String" itemvalue="Python.Inventory Notes" />
         <item index="4" class="java.lang.String" itemvalue="Python.Notes" />
       </list>
@@ -345,17 +345,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17715959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.44164038" sideWeight="0.11713031" order="7" side_tool="true" content_ui="tabs" x="675" y="177" width="503" height="355" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24405706" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32488114" sideWeight="0.8828697" order="2" side_tool="false" content_ui="tabs" x="2" y="455" width="1363" height="272" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3977813" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3977813" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -660,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3043">
           <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -676,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="88" column="15" lean-forward="true" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,15 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="547">
           <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="284" column="31" lean-forward="false" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,10 +694,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/World Map Class Notes.py">
+    <entry file="file://$PROJECT_DIR$/Rene-Angel Jaime - CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <caret line="271" column="0" lean-forward="true" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/World Map Class Notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="152" column="69" lean-forward="false" selection-start-line="152" selection-start-column="69" selection-end-line="152" selection-end-column="69" />
           <folding />
         </state>
       </provider>
