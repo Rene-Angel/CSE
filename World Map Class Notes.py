@@ -90,7 +90,8 @@ class Room(object):
         self.east = east
         self.west = west
         self.description = description
-        self.roominv = [] and roominv
+        self.roominv = []
+        self.roominv = roominv
         self.character = character
 
     def move(self, direction):
@@ -119,27 +120,29 @@ skeleton = Character("Skeleton", 75, 15, None, [sword])
 dragon = Character("Dragon", 1000, 45, None, [None])
 ghost = Character("Ghost", 50, 10, None, [None])
 
-START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [Sword], None,
+START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [sword], troll,
              "You are at the entrance of this dark dungeon. A large dark oak wood door stands at your northern side "
              "locked. To your east is a candle lit corridor leading to a circular room. As for your west, a similar "
              "corridor although there were not any candles, leading to an triangular room.")
-LIBRARY = Room("Library", None, None, None, 'START', [Sword], None,
-               "This room has walls filled with books, and tables in order with chairs surrounding them. A locked book "
+LIBRARY = Room("Library", None, None, None, 'START', [sword], None,
+               "This room has walls filled with books, and tables with chairs surrounding them. A locked book "
                "case grabs your attention however, with a key inside.")
 LABORATORY = Room("Alchemy Laboratory", None, None, 'Start', None, [None], None,
-                  "shelves on the walls are stacked with various ingredients and potions. The floor is marked with an "
-                  "alchemist's circle of transmutation, and there is a table with a glowing sword and potion.")
+                  "There are shelves on the walls stacked with various ingredients and potions. The floor is marked "
+                  "with an alchemist's circle of transmutation, and there is a small table in the corner of the room.")
 HALL = Room("Main Hall - Hallway", 'START', 'DINING', None, None, [None], None,
-            "The Main Hall of this dungeon continues toward south. Skeletal corpses lay on the floor scorched. There "
-            "was a faintly lit lantern on the floor, but by the looks of it you were not alone. You hear footsteps.")
+            "The Main Hall of this dungeon continues toward south. Skeletal corpses lay on the floor that have been "
+            "recently scorched. There was a faintly lit lantern on the floor, but by the looks of it you are not "
+            "alone. You hear footsteps.")
 DINING = Room("Dining Room", 'HALL', 'QUARTERS', 'KITCHEN', None, [None], None,
               "A large round table stands before you with a daggers stabbed through it as if a group of rogues were "
-              "plotting here for a quest. The dorms are to your south, where you still hear footsteps.")
+              "plotting here for a kill contract. The dorms are to your south, where you still hear footsteps.")
 
 inventory = []
 current_node = START
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
+short_look = ['l']
 # interactions = ['take', 'inventory', 'use']
 # short_interactions = ['t', 'i', 'u']
 print(" __          __  _                          _ \n"
@@ -150,7 +153,7 @@ print(" __          __  _                          _ \n"
       "     \/  \/ \___|_|\___\___/|_| |_| |_|\___(_)\n")
 print("Welcome to the game realm, player. You will have to make very move in this game count for if you don't, you "
       "lose(literally). Have fun in this game, cause not that many do. And if you lose well, you can always try "
-      "again. Be sure to type in help for a look at the controls.\n")
+      "again. Be sure to type in 'help' for a look at the controls.\n")
 
 while True:
     print(current_node.name)
@@ -185,8 +188,8 @@ while True:
             print("You have nothing in your inventory.")
             print("")
     elif command == 't':
-        item_requested = input("What are you taking? "
-                               ">_")
+        print("What do you want to take?")
+        item_requested = input(">_ ")
         found = False
         for item in current_node.roominv:
             if item.name == item_requested:
@@ -196,24 +199,37 @@ while True:
                     print("You have %s in your inventory." % item.name)
                     print("")
                 found = True
-                current_node.roominv.append(item)
+                current_node.roominv.remove(item)
             else:
-                print("There's nothing there to take.")
-    elif command == 'take':
-        item_requested = command[5:]
-        found = False
-        for item in current_node.roominv:
-            if item.name == item_requested:
-                player.inv.append(item)
-                for items in player.inv:
-                    print("You take %s." % item_requested)
-                    print("You have %s in your inventory." % item.name)
-                    print("")
-                found = True
-                current_node.roominv.append(item)
-            else:
-                print("There's nothing there to take.")
+                print("There's nothing here to take.")
+    # elif command == 'take':
+    #     item_requested = command[5:]
+    #     found = False
+    #     for item in current_node.roominv:
+    #         if item.name == item_requested:
+    #             player.inv.append(item)
+    #             if item in player.inv:
+    #                 print("You take %s." % item_requested)
+    #                 print("You have %s in your inventory." % item.name)
+    #                 print("")
+    #             found = True
+    #             current_node.roominv.remove(item)
+    #         else:
+    #             print("There's nothing there to take.")
+    elif command in short_look:
+        print("Item(s) in your area:")
+        for Item in current_node.roominv:
+            print(Item.name)
+            print("")
+            if len(current_node.roominv) < 0:
+                print('None')
+                print("")
     elif command == '':
-        print("You die of inactivity.")
-        print("You lose.")
+        print("You die by the fear of shock from not doing anything.")
+        print("
+ ▄▄ •  ▄▄▄· • ▌ ▄ ·. ▄▄▄ .           ▌ ▐·▄▄▄ .▄▄▄  ▄▄
+▐█ ▀ ▪▐█ ▀█ ·██ ▐███▪▀▄.▀·    ▪     ▪█·█▌▀▄.▀·▀▄ █·██▌
+▄█ ▀█▄▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄     ▄█▀▄ ▐█▐█•▐▀▀▪▄▐▀▀▄ ▐█·
+▐█▄▪▐█▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌    ▐█▌.▐▌ ███ ▐█▄▄▌▐█•█▌.▀
+·▀▀▀▀  ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀      ▀█▄▀▪. ▀   ▀▀▀ .▀  ▀ ▀ ")
         quit(0)
