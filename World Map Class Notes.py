@@ -90,7 +90,6 @@ class Room(object):
         self.east = east
         self.west = west
         self.description = description
-        self.roominv = []
         self.roominv = roominv
         self.character = character
 
@@ -99,7 +98,6 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
         # def addtoinventory(self, item):
-        #
 
 
 sword = Sword()
@@ -154,54 +152,64 @@ print(" __          __  _                          _ \n"
 print("Welcome to the game realm, player. You will have to make very move in this game count for if you don't, you "
       "lose(literally). Have fun in this game, cause not that many do. And if you lose well, you can always try "
       "again. Be sure to type in 'help' for a look at the controls.\n")
-
+print(current_node.name)
+print(current_node.description)
+print("")
 while True:
-    print(current_node.name)
-    print(current_node.description)
-    print("")
     command = input('>_').lower()
     if command == 'quit':
         quit(0)
-
     if command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
     elif command in directions:
         try:
             current_node.move(command)
+            print("---------------------------------------------------------------------------------------------")
+            print(current_node.name)
+            print(current_node.description)
+            print("---------------------------------------------------------------------------------------------")
         except KeyError:
             print("You cannot go this way.")
             print("")
 
     if command == 'help':
+        print("---------------------------------------------------------------------------------------------")
         print("t = take")
         print("i = inventory")
         print("u = use")
         print("n, s, e, w = moving in directions 'North', 'South', 'East', 'West'")
-        print("")
-    elif command == 'i':
+        print("---------------------------------------------------------------------------------------------")
+
+    if command == 'i':
         if len(player.inv) > 0:
             print("You have the following items in your inventory: ")
             for item in player.inv:
                 print(item.name)
         elif len(player.inv) < 0:
             print("You have nothing in your inventory.")
-            print("")
-    elif command == 't':
+            print("---------------------------------------------------------------------------------------------")
+
+    if command == 't':
+        print("---------------------------------------------------------------------------------------------")
         print("What do you want to take?")
-        item_requested = input(">_ ")
+        print("---------------------------------------------------------------------------------------------")
+        item_requested = input(">_ ").lower()
         found = False
         for item in current_node.roominv:
             if item.name == item_requested:
-                player.inv.append(item)
-                for items in player.inv:
-                    print("You take %s." % item_requested)
-                    print("You have %s in your inventory." % item.name)
-                    print("")
-                found = True
-                current_node.roominv.remove(item)
+                player.inv.append(current_node.roominv)
+                print("---------------------------------------------------------------------------------------------")
+                print("You take %s." % item_requested)
+                print("You now have %s in your inventory." % item.name)
+                print("---------------------------------------------------------------------------------------------")
+                if item in player.inv:
+                    found = True
+                    current_node.roominv.remove(item)
             else:
-                print("There's nothing here to take.")
+                print("")
+                print("There's no item that goes by %s." % item_requested)
+                print("")
     # elif command == 'take':
     #     item_requested = command[5:]
     #     found = False
@@ -216,20 +224,24 @@ while True:
     #             current_node.roominv.remove(item)
     #         else:
     #             print("There's nothing there to take.")
-    elif command in short_look:
-        print("Item(s) in your area:")
-        for Item in current_node.roominv:
-            print(Item.name)
+
+    if command in short_look:
+        print("")
+        if len(current_node.roominv) > 0:
+            print("Item(s) in your area:")
+            for Item in current_node.roominv:
+                print(Item.name)
             print("")
-            if len(current_node.roominv) < 0:
-                print('None')
-                print("")
-    elif command == '':
+        elif len(current_node.roominv) < 0:
+            print('There are no Items in your area.')
+            print("")
+
+    if command == '':
         print("You die by the fear of shock from not doing anything.")
-        print("
- ▄▄ •  ▄▄▄· • ▌ ▄ ·. ▄▄▄ .           ▌ ▐·▄▄▄ .▄▄▄  ▄▄
-▐█ ▀ ▪▐█ ▀█ ·██ ▐███▪▀▄.▀·    ▪     ▪█·█▌▀▄.▀·▀▄ █·██▌
-▄█ ▀█▄▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄     ▄█▀▄ ▐█▐█•▐▀▀▪▄▐▀▀▄ ▐█·
-▐█▄▪▐█▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌    ▐█▌.▐▌ ███ ▐█▄▄▌▐█•█▌.▀
-·▀▀▀▀  ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀      ▀█▄▀▪. ▀   ▀▀▀ .▀  ▀ ▀ ")
+        print("   _____                         ____                 _ \n"
+              "  / ____|                       / __ \               | |\n"
+              " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
+              " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
+              " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
+              "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n")
         quit(0)
