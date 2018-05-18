@@ -1,73 +1,73 @@
 class Item(object):
-    def __init__(self, name, weight):
+    def __init__(self, name):
         self.name = name
-        self.weight = weight
 
 
 class Weapon(Item):
-    def __init__(self, name, attack, price):
-        super(Weapon, self).__init__(name, price)
+    def __init__(self, name, attack):
+        super(Weapon, self).__init__(name)
         self.attack = attack
 
 
 class Consumable(Item):
-    def __init__(self, name, effect, price):
-        super(Consumable, self).__init__(name, price)
+    def __init__(self, name, effect):
+        super(Consumable, self).__init__(name)
         self.effect = effect
 
 
 class Sword(Weapon):
     def __init__(self):
-        super(Sword, self).__init__("Sword", 5, 10)
+        super(Sword, self).__init__("Sword", 5)
 
 
 class Troll_axe(Weapon):
     def __init__(self):
-        super(Troll_axe, self).__init__("Troll Axe", 25, 15)
+        super(Troll_axe, self).__init__("Troll Axe", 25)
 
 
 class War_axe(Weapon):
     def __init__(self):
-        super(War_axe, self).__init__("War Axe", 15, 20)
+        super(War_axe, self).__init__("War Axe", 15)
 
 
 class Health_potion(Consumable):
     def __init__(self):
-        super(Health_potion, self).__init__("Health Potion", 100, 100)
+        super(Health_potion, self).__init__("Health Potion", 100)
 
 
 class Apple(Consumable):
     def __init__(self):
-        super(Apple, self).__init__("Apple", 5, 1)
+        super(Apple, self).__init__("Apple", 5)
 
 
 class Branch(Weapon):
     def __init__(self):
-        super(Branch, self).__init__("Tree Branch", 10, 1)
+        super(Branch, self).__init__("Tree Branch", 10)
 
 
 class Dagger(Weapon):
     def __init__(self):
-        super(Dagger, self).__init__("Dagger", 15, 10)
+        super(Dagger, self).__init__("Dagger", 15)
 
 
 class Ragnarok(Weapon):
     def __init__(self):
-        super(Ragnarok, self).__init__("Ragnarok", 25, 50)
+        super(Ragnarok, self).__init__("Ragnarok", 25)
 
 
 class Egg(Consumable):
     def __init__(self):
-        super(Egg, self).__init__("Egg", 10, 5)
+        super(Egg, self).__init__("Egg", 10)
 
 
 class Stick(Weapon):
     def __init__(self):
-        super(Stick, self).__init__("Stick", 1, 1)
+        super(Stick, self).__init__("Stick", 1)
 
 
 class Character(object):
-    def __init__(self, name, health, attack, stats, inv):
+    def __init__(self, name, health, attack, stats, weapon, inv):
+        self.weapon = weapon
         self.name = name
         self.health = health
         self.stats = stats
@@ -80,6 +80,11 @@ class Character(object):
 
     def take_damage(self, dmg):
         self.health(dmg)
+
+    def equip(self, item):
+        if isinstance(item, Weapon):
+            print("---------------------------------------------------------------------------------------------")
+            print("New item equipped.")
 
 
 class Room(object):
@@ -111,12 +116,12 @@ healthpotion = Health_potion()
 ragnarok = Ragnarok()
 branch = Branch()
 
-player = Character(None, 500, 25, None, [ragnarok])
-troll = Character("Troll", 150, 25, None, [trollaxe])
-goblin = Character("Goblin", 100, 10, None, [dagger])
-skeleton = Character("Skeleton", 75, 15, None, [sword])
-dragon = Character("Dragon", 1000, 45, None, [None])
-ghost = Character("Ghost", 50, 10, None, [None])
+player = Character(None, 500, 25, None, [ragnarok], [apple])
+troll = Character("Troll", 150, 25, None, [trollaxe], [egg])
+goblin = Character("Goblin", 100, 10, None, [dagger], [egg])
+skeleton = Character("Skeleton", 75, 15, None, [sword], [None])
+dragon = Character("Dragon", 1000, 45, None, [None], [None])
+ghost = Character("Ghost", 50, 10, None, [None], [None])
 
 START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [sword], troll,
              "You are at the entrance of this dark dungeon. A large dark oak wood door stands at your northern side "
@@ -148,13 +153,15 @@ print(" __          __  _                          _ \n"
       "  \ \  /\  / /__| | ___ ___  _ __ ___   ___| |\n"
       "   \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ |\n"
       "    \  /\  /  __/ | (_| (_) | | | | | |  __/_|\n"
-      "     \/  \/ \___|_|\___\___/|_| |_| |_|\___(_)\n")
-print("Welcome to the game realm, player. You will have to make very move in this game count for if you don't, you "
-      "lose(literally). Have fun in this game, cause not that many do. And if you lose well, you can always try "
-      "again. Be sure to type in 'help' for a look at the controls.\n")
+      "     \/  \/ \___|_|\___\___/|_| |_| |_|\___(_)\n"
+      "---------------------------------------------------------------------------------------------\n"
+      "Welcome to the game realm, player. You will have to make every move in this game count. For if you don't, you "
+      "lose(literally). Have fun in this game, and if you need to look at the controls type in 'help'.\n"
+      "---------------------------------------------------------------------------------------------\n"
+      "Your journey begins in...")
 print(current_node.name)
 print(current_node.description)
-print("")
+print("---------------------------------------------------------------------------------------------")
 while True:
     command = input('>_').lower()
     if command == 'quit':
@@ -181,11 +188,24 @@ while True:
         print("n, s, e, w = moving in directions 'North', 'South', 'East', 'West'")
         print("---------------------------------------------------------------------------------------------")
 
+    if command == 'w':
+        print("---------------------------------------------------------------------------------------------")
+        if len(player.weapon) > 0:
+            print("You have the following weapons equipped:")
+            for item in player.weapon:
+                print(item.name)
+            print("---------------------------------------------------------------------------------------------")
+        elif len(player.weapon) < 0:
+            print("You have no weapons equipped.")
+            print("---------------------------------------------------------------------------------------------")
+
     if command == 'i':
+        print("---------------------------------------------------------------------------------------------")
         if len(player.inv) > 0:
             print("You have the following items in your inventory: ")
             for item in player.inv:
                 print(item.name)
+            print("---------------------------------------------------------------------------------------------")
         elif len(player.inv) < 0:
             print("You have nothing in your inventory.")
             print("---------------------------------------------------------------------------------------------")
@@ -194,7 +214,7 @@ while True:
         print("---------------------------------------------------------------------------------------------")
         print("What do you want to take?")
         print("---------------------------------------------------------------------------------------------")
-        item_requested = input(">_ ").lower()
+        item_requested = input(">_ ")
         found = False
         for item in current_node.roominv:
             if item.name == item_requested:
@@ -207,9 +227,9 @@ while True:
                     found = True
                     current_node.roominv.remove(item)
             else:
-                print("")
+                print("---------------------------------------------------------------------------------------------")
                 print("There's no item that goes by %s." % item_requested)
-                print("")
+                print("---------------------------------------------------------------------------------------------")
     # elif command == 'take':
     #     item_requested = command[5:]
     #     found = False
@@ -226,22 +246,25 @@ while True:
     #             print("There's nothing there to take.")
 
     if command in short_look:
-        print("")
+        print("---------------------------------------------------------------------------------------------")
         if len(current_node.roominv) > 0:
             print("Item(s) in your area:")
             for Item in current_node.roominv:
                 print(Item.name)
-            print("")
+            print("---------------------------------------------------------------------------------------------")
         elif len(current_node.roominv) < 0:
-            print('There are no Items in your area.')
-            print("")
+            print("There are no Items in your area.")
+            print("---------------------------------------------------------------------------------------------")
 
     if command == '':
-        print("You die by the fear of shock from not doing anything.")
-        print("   _____                         ____                 _ \n"
+        print("---------------------------------------------------------------------------------------------\n"
+              "You die by the fear of shock from not doing anything.\n"
+              "---------------------------------------------------------------------------------------------\n"
+              "   _____                         ____                 _ \n"
               "  / ____|                       / __ \               | |\n"
               " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
               " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
               " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
-              "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n")
+              "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
+              "---------------------------------------------------------------------------------------------")
         quit(0)

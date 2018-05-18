@@ -78,11 +78,12 @@ class Stick(Weapon):
 
 
 class Character(object):
-    def __init__(self, name, health, attack, stats, inv):
+    def __init__(self, name, health, attack, stats, weapons, inv):
         self.name = name
         self.health = health
         self.stats = stats
-        self.inv = list()
+        self.weapons = weapons
+        self.inv = inv
         self.attack_amt = attack
 
     def attack(self, target):
@@ -120,12 +121,12 @@ healthpotion = Health_potion()
 ragnarok = Ragnarok()
 branch = Branch()
 
-player = Character(None, 500, 25, None, [ragnarok])
-troll = Character("Troll", 150, 25, None, [trollaxe])
-goblin = Character("Goblin", 100, 10, None, [dagger])
-skeleton = Character("Skeleton", 75, 15, None, [sword])
-dragon = Character("Dragon", 1000, 45, None, [None])
-ghost = Character("Ghost", 50, 10, None, [None])
+player = Character(None, 500, 25, None, [ragnarok], [apple])
+troll = Character("Troll", 150, 25, None, [trollaxe], [egg])
+goblin = Character("Goblin", 100, 10, None, [dagger], [egg])
+skeleton = Character("Skeleton", 75, 15, None, [sword], [None])
+dragon = Character("Dragon", 1000, 45, None, [None], [None])
+ghost = Character("Ghost", 50, 10, None, [None], [None])
 
 hallway_1 = Room("Long Corridor", 'hallway_2', 'hallway_3', 'wall_opening', None,
                  [sword, waraxe], None, 'This long Hallway leads to: '
