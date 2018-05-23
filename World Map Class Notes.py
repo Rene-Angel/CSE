@@ -66,24 +66,24 @@ class Stick(Weapon):
 
 
 class Character(object):
-    def __init__(self, name, health, attack, stats, weapon, inv):
+    def __init__(self, name, health, attack, weapon, inv):
         self.weapon = weapon
         self.name = name
         self.health = health
-        self.stats = stats
         self.inv = inv
         self.attack_amt = attack
 
-    def attack(self, target):
-        if target.damage(self.attack_amt):
-            print("You took Damage.")
-
     def take_damage(self, dmg):
-        self.health(dmg)
+        self.health -= dmg
+
+
+class Enemy(Character):
+    def __init__(self, name, health, attack, weapon, inv):
+        super(Enemy, self).__init__(name, health, attack, weapon, inv)
 
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, roominv, character, description):
+    def __init__(self, name, north, south, east, west, roominv, enemy, description):
         self.name = name
         self.north = north
         self.south = south
@@ -91,7 +91,7 @@ class Room(object):
         self.west = west
         self.description = description
         self.roominv = roominv
-        self.character = character
+        self.enemy = enemy
 
     def move(self, direction):
         global current_node
@@ -109,16 +109,16 @@ healthpotion = Health_potion()
 ragnarok = Ragnarok()
 branch = Branch()
 
-player = Character(None, 500, 25, None, [ragnarok], [apple])
-troll = Character("Troll", 150, 25, None, [trollaxe], [egg])
-goblin = Character("Goblin", 100, 10, None, [dagger], [egg])
-skeleton = Character("Skeleton", 75, 15, None, [sword], [None])
-dragon = Character("Dragon", 1000, 45, None, [None], [None])
-ghost = Character("Ghost", 50, 10, None, [None], [None])
-prisoner_spirit = Character("Prisoner's Spirit", 125, 30, None, [None], [None])
-mimic = Character("Mimic", 300, 25, None, [None], [None])
+player = Character(None, 500, 25, [ragnarok], [apple])
+troll = Enemy("Troll", 150, 25, [trollaxe], [egg])
+goblin = Enemy("Goblin", 100, 10, [dagger], [egg])
+skeleton = Enemy("Skeleton", 75, 15, [sword], [None])
+dragon = Enemy("Dragon", 1000, 45, [None], [None])
+ghost = Enemy("Ghost", 50, 10, [None], [None])
+prisoner_spirit = Enemy("Prisoner's Spirit", 125, 30, [None], [None])
+mimic = Enemy("Mimic", 300, 25, [None], [None])
 
-START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [sword], troll,
+START = Room("Main Hall - Entrance", None, 'HALL', 'LIBRARY', 'LABORATORY', [sword, apple], troll,
              "You are at the entrance of this dark dungeon. A large dark oak wood door stands at your northern side "
              "locked. To your east is a candle lit corridor leading to a circular room. As for your west, a similar "
              "corridor although there were not any candles, leading to an triangular room.")
@@ -168,7 +168,8 @@ short_directions = ['n', 's', 'e', 'w']
 # interactions = ['take', 'inventory', 'use']
 # short_interactions = ['t', 'i', 'u']
 
-print(" __          __  _                          _ \n"
+print("---------------------------------------------------------------------------------------------\n"
+      " __          __  _                          _ \n"
       " \ \        / / | |                        | |\n"
       "  \ \  /\  / /__| | ___ ___  _ __ ___   ___| |\n"
       "   \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ |\n"
@@ -197,26 +198,77 @@ while True:
               "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
               "---------------------------------------------------------------------------------------------")
         quit(0)
-    if command in short_directions:
+    elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print("You cannot go this way.")
+            print("")
     elif command in directions:
         try:
             current_node.move(command)
             print("---------------------------------------------------------------------------------------------")
             print(current_node.name)
             print(current_node.description)
+            if len(current_node.enemy) < 0:
+                print("There are no enemies nearby.")
+            elif len(current_node.enemy) > 0:
+                print("Hostiles nearby:")
+                for Enemy in current_node.enemy:
+                    print(Enemy.name)
             print("---------------------------------------------------------------------------------------------")
         except KeyError:
             print("---------------------------------------------------------------------------------------------")
             print("You cannot go that way.")
             print("---------------------------------------------------------------------------------------------")
 
+    if command == 'a':
+        print("---------------------------------------------------------------------------------------------\n")
+        print("%s had appeared!\n" % current_node.enemy.name)
+        print("---------------------------------------------------------------------------------------------\n"
+              "Would you like to attack? (yes/no)\n"
+              "---------------------------------------------------------------------------------------------\n")
+        answer = input()
+        if answer == 'yes':
+            current_node.enemy.health -= player.attack_amt
+            print("You attacked %s." % current_node.enemy.name)
+            print("They took %s damage." % player.attack_amt)
+            print("---------------------------------------------------------------------------------------------\n")
+        elif answer == 'no':
+            player.health -= current_node.enemy.attack_amt
+            print("You failed to attack, so they took advantage.")
+            print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
+            print("---------------------------------------------------------------------------------------------\n")
+        else:
+            print("What are you doing? You are in a battle!"
+                  "---------------------------------------------------------------------------------------------\n")
+            player.health -= current_node.enemy.attack_amt
+            print("You failed to attack, so they took advantage.")
+            print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
+            print("---------------------------------------------------------------------------------------------\n")
+        if current_node.enemy.health < 0:
+            print("The enemy has fallen, and you continue with your journey.")
+        elif player.health < 0:
+            print("YOU HAVE FALLEN AND YOU CAN'T GET UP! CALL 1-800-LIFE-ALERT")
+            print("The ambulance didn't make it in time."
+                  "---------------------------------------------------------------------------------------------\n"
+                  "   _____                         ____                 _ \n"
+                  "  / ____|                       / __ \               | |\n"
+                  " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
+                  " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
+                  " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
+                  "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
+                  "---------------------------------------------------------------------------------------------")
+            quit(0)
+
     if command == 'help':
         print("---------------------------------------------------------------------------------------------\n"
               "Controls and Descriptions:"
               "t = take (an item)\n"
-              "equip = equip a weapon (from your inventory)\n"
+              "a = attack (if there's an enemy nearby)"
               "i = inventory (view items in your inventory)\n"
               "equipped = weapons equipped (weapons only)\n"
               "u = use (an item)\n"
@@ -283,7 +335,6 @@ while True:
     #             current_node.roominv.remove(item)
     #         else:
     #             print("There's nothing there to take.")
-
     if command in 'l':
         print("---------------------------------------------------------------------------------------------")
         if len(current_node.roominv) > 0:
@@ -294,7 +345,6 @@ while True:
         elif len(current_node.roominv) < 0:
             print("There are no Items in your area.")
             print("---------------------------------------------------------------------------------------------")
-
     if command == '':
         print("---------------------------------------------------------------------------------------------\n"
               "You die by the fear of shock from not doing anything.\n"
