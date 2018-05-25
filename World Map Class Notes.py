@@ -20,19 +20,19 @@ class Sword(Weapon):
         super(Sword, self).__init__("Sword", 5)
 
 
-class Troll_axe(Weapon):
+class TrollAxe(Weapon):
     def __init__(self):
-        super(Troll_axe, self).__init__("Troll Axe", 25)
+        super(TrollAxe, self).__init__("Troll Axe", 25)
 
 
-class War_axe(Weapon):
+class WarAxe(Weapon):
     def __init__(self):
-        super(War_axe, self).__init__("War Axe", 15)
+        super(WarAxe, self).__init__("War Axe", 15)
 
 
-class Health_potion(Consumable):
+class HealthPotion(Consumable):
     def __init__(self):
-        super(Health_potion, self).__init__("Health Potion", 100)
+        super(HealthPotion, self).__init__("Health Potion", 100)
 
 
 class Apple(Consumable):
@@ -102,10 +102,10 @@ sword = Sword()
 dagger = Dagger()
 egg = Egg()
 apple = Apple()
-trollaxe = Troll_axe()
-waraxe = War_axe()
+trollaxe = TrollAxe()
+waraxe = WarAxe()
 stick = Stick()
-healthpotion = Health_potion()
+healthpotion = HealthPotion()
 ragnarok = Ragnarok()
 branch = Branch()
 
@@ -198,28 +198,13 @@ while True:
               "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
               "---------------------------------------------------------------------------------------------")
         quit(0)
-    elif command in short_directions:
+
+    if command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
     if command in directions:
         try:
             current_node.move(command)
-        except KeyError:
-            print("You cannot go this way.")
-            print("")
-    elif command in directions:
-        try:
-            current_node.move(command)
-            print("---------------------------------------------------------------------------------------------")
-            print(current_node.name)
-            print(current_node.description)
-            if len(current_node.enemy) < 0:
-                print("There are no enemies nearby.")
-            elif len(current_node.enemy) > 0:
-                print("Hostiles nearby:")
-                for Enemy in current_node.enemy:
-                    print(Enemy.name)
-            print("---------------------------------------------------------------------------------------------")
         except KeyError:
             print("---------------------------------------------------------------------------------------------")
             print("You cannot go that way.")
@@ -321,39 +306,14 @@ while True:
                 print("---------------------------------------------------------------------------------------------")
                 print("There's no item that goes by %s." % item_requested)
                 print("---------------------------------------------------------------------------------------------")
-    # elif command == 'take':
-    #     item_requested = command[5:]
-    #     found = False
-    #     for item in current_node.roominv:
-    #         if item.name == item_requested:
-    #             player.inv.append(item)
-    #             if item in player.inv:
-    #                 print("You take %s." % item_requested)
-    #                 print("You have %s in your inventory." % item.name)
-    #                 print("")
-    #             found = True
-    #             current_node.roominv.remove(item)
-    #         else:
-    #             print("There's nothing there to take.")
+
     if command in 'l':
         print("---------------------------------------------------------------------------------------------")
-        if len(current_node.roominv) > 0:
-            print("Item(s) in your area:")
+        print("Item(s) in your area:")
+        try:
             for item in current_node.roominv:
                 print(item.name)
             print("---------------------------------------------------------------------------------------------")
-        elif len(current_node.roominv) < 0:
+        except KeyError:
             print("There are no Items in your area.")
             print("---------------------------------------------------------------------------------------------")
-    if command == '':
-        print("---------------------------------------------------------------------------------------------\n"
-              "You die by the fear of shock from not doing anything.\n"
-              "---------------------------------------------------------------------------------------------\n"
-              "   _____                         ____                 _ \n"
-              "  / ____|                       / __ \               | |\n"
-              " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
-              " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
-              " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
-              "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
-              "---------------------------------------------------------------------------------------------")
-        quit(0)

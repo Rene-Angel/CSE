@@ -1,12 +1,3 @@
-# import string
-# import ...(statements)
-# class definitions
-# items first
-# characters second
-# rooms third
-# instantiate classes
-# controller
-
 class Item(object):
     def __init__(self, name):
         self.name = name
@@ -191,10 +182,7 @@ print(current_node.description)
 print("---------------------------------------------------------------------------------------------")
 
 while True:
-    print(current_node.name)
-    print(current_node.description)
     command = input('>_').lower()
-
     if command == 'quit':
         quit(0)
     elif command in short_directions:
@@ -203,6 +191,8 @@ while True:
     if command in directions:
         try:
             current_node.move(command)
+            print(current_node.name)
+            print(current_node.description)
         except KeyError:
             print("You cannot go this way.")
             print("")
@@ -212,39 +202,41 @@ while True:
         print("---------------------------------------------------------------------------------------------\n"
               "Would you like to attack? (yes/no)\n"
               "---------------------------------------------------------------------------------------------\n")
-        answer = input()
-        if answer == 'yes':
-            current_node.enemy.health -= player.attack_amt
-            print("You attacked %s." % current_node.enemy.name)
-            print("They took %s damage." % player.attack_amt)
-            print("---------------------------------------------------------------------------------------------\n")
-        elif answer == 'no':
-            player.health -= current_node.enemy.attack_amt
-            print("You failed to attack, so they took advantage.")
-            print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
-            print("---------------------------------------------------------------------------------------------\n")
+        answer = input(">_").lower()
+        while current_node.enemy.health > 0:
+            if answer == 'yes':
+                current_node.enemy.health -= player.attack_amt
+                print("You attacked %s." % current_node.enemy.name)
+                print("They took %s damage." % player.attack_amt)
+                print("---------------------------------------------------------------------------------------------\n")
+            elif answer == 'no':
+                player.health -= current_node.enemy.attack_amt
+                print("You failed to attack, so they took advantage.")
+                print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
+                print("---------------------------------------------------------------------------------------------\n")
+            else:
+                print("What are you doing? You are in a battle!"
+                      "---------------------------------------------------------------------------------------------\n")
+                player.health -= current_node.enemy.attack_amt
+                print("You failed to attack, so they took advantage.")
+                print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
+                print("---------------------------------------------------------------------------------------------\n")
+            if current_node.enemy.health < 0:
+                print("The enemy has fallen, and you continue with your journey.")
+            elif player.health < 0:
+                print("YOU HAVE FALLEN AND YOU CAN'T GET UP! CALL 1-800-LIFE-ALERT")
+                print("The ambulance didn't make it in time."
+                      "---------------------------------------------------------------------------------------------\n"
+                      "   _____                         ____                 _ \n"
+                      "  / ____|                       / __ \               | |\n"
+                      " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
+                      " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
+                      " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
+                      "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
+                      "---------------------------------------------------------------------------------------------")
+                quit(0)
         else:
-            print("What are you doing? You are in a battle!"
-                  "---------------------------------------------------------------------------------------------\n")
-            player.health -= current_node.enemy.attack_amt
-            print("You failed to attack, so they took advantage.")
-            print("You stumble... and took %s damage." % current_node.enemy.attack_amt)
-            print("---------------------------------------------------------------------------------------------\n")
-        if current_node.enemy.health < 0:
-            print("The enemy has fallen, and you continue with your journey.")
-        elif player.health < 0:
-            print("YOU HAVE FALLEN AND YOU CAN'T GET UP! CALL 1-800-LIFE-ALERT")
-            print("The ambulance didn't make it in time."
-                  "---------------------------------------------------------------------------------------------\n"
-                  "   _____                         ____                 _ \n"
-                  "  / ____|                       / __ \               | |\n"
-                  " | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __| |\n"
-                  " | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__| |\n"
-                  " | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |  |_|\n"
-                  "  \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|  (_)\n"
-                  "---------------------------------------------------------------------------------------------")
-            quit(0)
-
+            "Either the enemy is dead, or there was no enemy at all."
     if command == 'help':
         print("---------------------------------------------------------------------------------------------\n"
               "Controls and Descriptions:"
@@ -259,7 +251,6 @@ while True:
               "---------------------------------------------------------------------------------------------\n"
               "To review these controls again type in 'help'\n"
               "---------------------------------------------------------------------------------------------")
-
     if command == 'equipped':
         print("---------------------------------------------------------------------------------------------")
         if len(player.weapon) > 0:
@@ -270,7 +261,6 @@ while True:
         elif len(player.weapon) < 0:
             print("You have no weapons equipped.")
             print("---------------------------------------------------------------------------------------------")
-
     if command == 'i':
         print("---------------------------------------------------------------------------------------------")
         if len(player.inv) > 0:
@@ -281,7 +271,6 @@ while True:
         elif len(player.inv) < 0:
             print("You have nothing in your inventory.")
             print("---------------------------------------------------------------------------------------------")
-
     if command == 't':
         print("---------------------------------------------------------------------------------------------")
         print("What do you want to take? (Type in the item name with a capital.)")
@@ -302,6 +291,14 @@ while True:
                 print("---------------------------------------------------------------------------------------------")
                 print("There's no item that goes by %s." % item_requested)
                 print("---------------------------------------------------------------------------------------------")
-
+    if command == 'l':
+        print("---------------------------------------------------------------------------------------------")
+        print("Item(s) in your area:")
+        for item in current_node.roominv:
+            if current_node.roominv == [None]:
+                print("There are no Items in your area.")
+            else:
+                print(item.name)
+        print("---------------------------------------------------------------------------------------------")
 else:
     print("Command Not Recognized.")
